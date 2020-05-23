@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        mysql分组函数 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分组函数"><span class="toc-text">分组函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SUM-expression"><span class="toc-text">SUM(expression)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AVG-expression"><span class="toc-text">AVG(expression)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MAX-expression"><span class="toc-text">MAX(expression)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MIN-expression"><span class="toc-text">MIN(expression)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#COUNT-expression"><span class="toc-text">COUNT(expression)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数支持哪些类型"><span class="toc-text">参数支持哪些类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符"><span class="toc-text">字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日期"><span class="toc-text">日期</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特点"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#案例"><span class="toc-text">案例</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        mysql分组函数
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 00:00:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#mysql" title="mysql">mysql</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="分组函数"><a href="#分组函数" class="headerlink" title="分组函数"></a>分组函数</h1><p>用作统计使用，又称为聚合函数或统计函数或组函数</p>
+<h2 id="SUM-expression"><a href="#SUM-expression" class="headerlink" title="SUM(expression)"></a>SUM(expression)</h2><p>​    求和</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SUM(salary) FROM employees;</span><br></pre></td></tr></table></figure>
+
+<h2 id="AVG-expression"><a href="#AVG-expression" class="headerlink" title="AVG(expression)"></a>AVG(expression)</h2><p>​    平均值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT AVG(salary) FROM employees;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="MAX-expression"><a href="#MAX-expression" class="headerlink" title="MAX(expression)"></a>MAX(expression)</h2><p>​    最大值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT MAX(salary) FROM employees;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="MIN-expression"><a href="#MIN-expression" class="headerlink" title="MIN(expression)"></a>MIN(expression)</h2><p>​    最小值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT MIN(salary) FROM employees;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="COUNT-expression"><a href="#COUNT-expression" class="headerlink" title="COUNT(expression)"></a>COUNT(expression)</h2><p>​    计算个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNT(salary) FROM employees;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNT(*) FROM employees;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNT(1) FROM employees;</span><br></pre></td></tr></table></figure>
+
+<p>效率：<br><code>MYISAM</code>存储引擎下  ，COUNT(<em>)的效率高<br><code>INNODB</code>存储引擎下，COUNT(</em>)和COUNT(1)的效率差不多，比COUNT(字段)要高一些</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	SUM( salary ) 和,</span><br><span class="line">	AVG( salary ) 平均,</span><br><span class="line">	MAX( salary ) 最高,</span><br><span class="line">	MIN( salary ) 最低,</span><br><span class="line">	COUNT( salary ) 个数 </span><br><span class="line">FROM</span><br><span class="line">	employees;</span><br></pre></td></tr></table></figure>
+
+<p>平均工资保留两位小数(四舍五入)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	SUM( salary ) 和,</span><br><span class="line">	ROUND( AVG( salary ), 2 ) 平均,</span><br><span class="line">	MAX( salary ) 最高,</span><br><span class="line">	MIN( salary ) 最低,</span><br><span class="line">	COUNT( salary ) 个数 </span><br><span class="line">FROM</span><br><span class="line">	employees;</span><br></pre></td></tr></table></figure>
+
+<h2 id="参数支持哪些类型"><a href="#参数支持哪些类型" class="headerlink" title="参数支持哪些类型"></a>参数支持哪些类型</h2><h3 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h3><p>先试图将字符转换成数值，如果转换成功，则继续运算；否则转换成0，再做运算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	SUM( last_name ),</span><br><span class="line">	AVG( last_name ) </span><br><span class="line">FROM</span><br><span class="line">	employees;</span><br><span class="line">	</span><br><span class="line">--&gt; 0,0</span><br></pre></td></tr></table></figure>
+
+<p>与排序差不多</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	MAX( last_name ),</span><br><span class="line">	MIN( last_name ) </span><br><span class="line">FROM</span><br><span class="line">	employees;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SUM(hiredate) ,AVG(hiredate) FROM employees;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT MAX(hiredate),MIN(hiredate) FROM employees;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li><p>sum、avg一般用于处理数值型</p>
+</li>
+<li><p>max、min、count可以处理任何类型</p>
+</li>
+<li><p>以上分组函数都忽略null值</p>
+</li>
+<li><p>可以和distinct搭配实现去重的运算</p>
+</li>
+<li><p>一般使用count(*)用作统计行数</p>
+</li>
+<li><p>和分组函数一同查询的字段要求是group by后的字段</p>
+</li>
+</ol>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><ol>
+<li><p>查询员工表中的最大入职时间和最小入职时间的相差天数 （DIFFRENCE）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	MAX( hiredate ) 最大,</span><br><span class="line">	MIN( hiredate ) 最小,</span><br><span class="line">	(MAX( hiredate )- MIN( hiredate ))&#x2F; 1000 &#x2F; 3600 &#x2F; 24 DIFFRENCE </span><br><span class="line">FROM</span><br><span class="line">	employees;</span><br></pre></td></tr></table></figure>
+
+<p>使用DATEDIFF(d1,d2)函数，计算日期 d1～d2 之间相隔的天数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DATEDIFF(MAX(hiredate),MIN(hiredate)) DIFFRENCE;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>查询部门编号为90的员工个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	COUNT(*) </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">WHERE</span><br><span class="line">	department_id &#x3D; 90;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
