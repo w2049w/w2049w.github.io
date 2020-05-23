@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        springboot/helloweb - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot-Web开发"><span class="toc-text">SpringBoot Web开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#web自动配置规则"><span class="toc-text">web自动配置规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot对静态资源的映射规则"><span class="toc-text">SpringBoot对静态资源的映射规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非webjars，自己的静态资源怎么访问"><span class="toc-text">非webjars，自己的静态资源怎么访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#欢迎页映射"><span class="toc-text">欢迎页映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网站图标映射（favicon-ico）"><span class="toc-text">网站图标映射（favicon.ico）</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        springboot/helloweb
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 00:28:43</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="SpringBoot-Web开发"><a href="#SpringBoot-Web开发" class="headerlink" title="SpringBoot Web开发"></a>SpringBoot Web开发</h1><ol>
+<li><p>创建SpringBoot应用，选中我们需要的模块</p>
+</li>
+<li><p>SpringBoot已经默认将这些场景配置好了，只需要在配置文件中指定少量配置就可以运行起来</p>
+</li>
+<li><p>自己编写业务代码</p>
+</li>
+</ol>
+<h2 id="web自动配置规则"><a href="#web自动配置规则" class="headerlink" title="web自动配置规则"></a>web自动配置规则</h2><ol>
+<li>WebMvcAutoConfiguration</li>
+<li>WebMvcProperties</li>
+<li>ViewResolver自动配置</li>
+<li>静态资源自动映射</li>
+<li>Formatter与Converter自动配置</li>
+<li>HttpMessageConverter自动配置</li>
+<li>静态首页</li>
+<li>favicon</li>
+<li>错误处理</li>
+</ol>
+<h2 id="SpringBoot对静态资源的映射规则"><a href="#SpringBoot对静态资源的映射规则" class="headerlink" title="SpringBoot对静态资源的映射规则"></a>SpringBoot对静态资源的映射规则</h2><p><code>WebMvcAutoConfiguration</code>类的<code>addResourceHandlers</code>方法：（添加资源映射）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.resourceProperties.isAddMappings()) &#123;</span><br><span class="line">        logger.debug(<span class="string">"Default resource handling disabled"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Duration cachePeriod = <span class="keyword">this</span>.resourceProperties.getCache().getPeriod();</span><br><span class="line">        CacheControl cacheControl = <span class="keyword">this</span>.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();</span><br><span class="line">        <span class="keyword">if</span> (!registry.hasMappingForPattern(<span class="string">"/webjars/**"</span>)) &#123;</span><br><span class="line">            <span class="keyword">this</span>.customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="keyword">new</span> String[]&#123;<span class="string">"/webjars/**"</span>&#125;).addResourceLocations(<span class="keyword">new</span> String[]&#123;<span class="string">"classpath:/META-INF/resources/webjars/"</span>&#125;).setCachePeriod(<span class="keyword">this</span>.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        String staticPathPattern = <span class="keyword">this</span>.mvcProperties.getStaticPathPattern();</span><br><span class="line">        <span class="keyword">if</span> (!registry.hasMappingForPattern(staticPathPattern)) &#123;</span><br><span class="line">            <span class="keyword">this</span>.customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="keyword">new</span> String[]&#123;staticPathPattern&#125;).addResourceLocations(WebMvcAutoConfiguration.getResourceLocations(<span class="keyword">this</span>.resourceProperties.getStaticLocations())).setCachePeriod(<span class="keyword">this</span>.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所有 <code>/webjars/**</code> ，都去 <code>classpath:/META-INF/resources/webjars/</code> 找资源</p>
+<p><code>webjars</code>：以jar包的方式引入静态资源；</p>
+<p><a href="https://www.webjars.org/" target="_blank" rel="noopener">webjars官网</a></p>
+<p><img src="https://cdn.static.note.zzrfdsn.cn/images/springboot/assets/1573815091111.png" alt="1573815091111"></p>
+<p>例如：添加jquery的webjars</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.webjars<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jquery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.static.note.zzrfdsn.cn/images/springboot/assets/1573815506777.png" alt="1573815506777"></p>
+<p>访问地址对应就是：<a href="http://localhost:8080/webjars/jquery/3.4.1/jquery.js" target="_blank" rel="noopener">http://localhost:8080/webjars/jquery/3.4.1/jquery.js</a></p>
+<h2 id="非webjars，自己的静态资源怎么访问"><a href="#非webjars，自己的静态资源怎么访问" class="headerlink" title="非webjars，自己的静态资源怎么访问"></a>非webjars，自己的静态资源怎么访问</h2><p><strong>资源配置类：</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(	<span class="comment">//说明可以在配置文件中配置相关参数</span></span><br><span class="line">    prefix = <span class="string">"spring.resources"</span>,</span><br><span class="line">    ignoreUnknownFields = <span class="keyword">false</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResourceProperties</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] CLASSPATH_RESOURCE_LOCATIONS = <span class="keyword">new</span> String[]&#123;<span class="string">"classpath:/META-INF/resources/"</span>, <span class="string">"classpath:/resources/"</span>, <span class="string">"classpath:/static/"</span>, <span class="string">"classpath:/public/"</span>&#125;;</span><br><span class="line">    <span class="keyword">private</span> String[] staticLocations;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> addMappings;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ResourceProperties.Chain chain;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ResourceProperties.Cache cache;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ResourceProperties</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.staticLocations = CLASSPATH_RESOURCE_LOCATIONS;</span><br><span class="line">        <span class="keyword">this</span>.addMappings = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">this</span>.chain = <span class="keyword">new</span> ResourceProperties.Chain();</span><br><span class="line">        <span class="keyword">this</span>.cache = <span class="keyword">new</span> ResourceProperties.Cache();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://cdn.static.note.zzrfdsn.cn/images/springboot/assets/1573817274649.png" alt="1573817274649"></p>
+<p>上图中添加的映射访问路径<code>staticPathPattern</code>值是<code>/**</code>，对应的资源文件夹就是上面配置类<code>ResourceProperties</code>中的<code>CLASSPATH_RESOURCE_LOCATIONS</code>数组中的文件夹：</p>
+<table>
+<thead>
+<tr>
+<th>数组中的值</th>
+<th>在项目中的位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>classpath:/META-INF/resources/</td>
+<td>src/main/resources/META-INF/resources/</td>
+</tr>
+<tr>
+<td>classpath:/resources/</td>
+<td>src/main/resources/resources/</td>
+</tr>
+<tr>
+<td>classpath:/static/</td>
+<td>src/main/resources/static/</td>
+</tr>
+<tr>
+<td>classpath:/public/</td>
+<td>src/main/resources/public/</td>
+</tr>
+</tbody></table>
+<p>localhost:8080/abc     —&gt;    去静态资源文件夹里面找abc</p>
+<h2 id="欢迎页映射"><a href="#欢迎页映射" class="headerlink" title="欢迎页映射"></a>欢迎页映射</h2><p><img src="https://cdn.static.note.zzrfdsn.cn/images/springboot/assets/1573819949494.png" alt="1573819949494"></p>
+<p><code>location</code>就是静态资源路径，所以欢迎页的页面就是上面静态资源下的<code>index.html</code>，被<code>/**</code>映射，因此直接访问项目就是访问欢迎页</p>
+<h2 id="网站图标映射（favicon-ico）"><a href="#网站图标映射（favicon-ico）" class="headerlink" title="网站图标映射（favicon.ico）"></a>网站图标映射（favicon.ico）</h2><p>所有的 favicon.ico  都是在静态资源文件下找；</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

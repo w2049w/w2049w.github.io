@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        mysql/practice03 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#查询两张表不同的数据"><span class="toc-text">查询两张表不同的数据</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        mysql/practice03
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 00:28:43</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="查询两张表不同的数据"><a href="#查询两张表不同的数据" class="headerlink" title="查询两张表不同的数据"></a>查询两张表不同的数据</h1><p>有两张表：一张A表和一张B表</p>
+<ul>
+<li>left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录 ；</li>
+<li>right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录；</li>
+<li>inner join(等值连接) 只返回两个表中联结字段相等的行；</li>
+</ul>
+<p><strong>表A数据：</strong></p>
+<table>
+<thead>
+<tr>
+<th>a_id</th>
+<th>bookName</th>
+<th>price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>java教程</td>
+<td>84</td>
+</tr>
+<tr>
+<td>2</td>
+<td>javascript教程</td>
+<td>80</td>
+</tr>
+<tr>
+<td>3</td>
+<td>mysql教程</td>
+<td>69</td>
+</tr>
+<tr>
+<td>4</td>
+<td>c语言</td>
+<td>102</td>
+</tr>
+</tbody></table>
+<p><strong>表B数据：</strong></p>
+<table>
+<thead>
+<tr>
+<th>b_id</th>
+<th>bookName</th>
+<th>price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>java教程</td>
+<td>84</td>
+</tr>
+<tr>
+<td>2</td>
+<td>javascript教程</td>
+<td>80</td>
+</tr>
+<tr>
+<td>5</td>
+<td>linux教程</td>
+<td>80</td>
+</tr>
+<tr>
+<td>6</td>
+<td>android教程</td>
+<td>68</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> a;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> b;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> a(</span><br><span class="line">	a_id <span class="built_in">INT</span>,</span><br><span class="line">	bookName <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</span><br><span class="line">	price <span class="built_in">FLOAT</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> b(</span><br><span class="line">	a_id <span class="built_in">INT</span>,</span><br><span class="line">	bookName <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</span><br><span class="line">	price <span class="built_in">FLOAT</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> a <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>,<span class="string">'java教程'</span>,<span class="number">84</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="string">'javascript教程'</span>,<span class="number">80</span>),</span><br><span class="line">(<span class="number">3</span>,<span class="string">'mysql教程'</span>,<span class="number">69</span>),</span><br><span class="line">(<span class="number">4</span>,<span class="string">'c语言'</span>,<span class="number">102</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> b <span class="keyword">VALUES</span></span><br><span class="line">(<span class="number">1</span>,<span class="string">'java教程'</span>,<span class="number">84</span>),</span><br><span class="line">(<span class="number">2</span>,<span class="string">'javascript教程'</span>,<span class="number">80</span>),</span><br><span class="line">(<span class="number">5</span>,<span class="string">'linux教程'</span>,<span class="number">80</span>),</span><br><span class="line">(<span class="number">6</span>,<span class="string">'android教程'</span>,<span class="number">68</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>查询两张表中都有的记录（相同数据）</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.* <span class="keyword">FROM</span> a <span class="keyword">INNER</span> <span class="keyword">JOIN</span> b <span class="keyword">ON</span> a.a_id = b.b_id;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查询表A中有，表B中没有的数据</p>
+</blockquote>
+<p>先使用连接查询a表的全部</p>
+<p><img src="https://cdn.static.note.zzrfdsn.cn/images/mysql/1577093558538.png" alt="1577093558538"></p>
+<p>然后筛选出b中没有的数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.* <span class="keyword">FROM</span> a <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> b <span class="keyword">ON</span> a.a_id = b.b_id <span class="keyword">WHERE</span> b.b_id <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>查询表A中没有，表B中有的数据</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> b.* <span class="keyword">FROM</span> a <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> b <span class="keyword">ON</span> a.a_id = b.b_id <span class="keyword">WHERE</span> a.a_id <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>查询表A表和B表中不相同的数据</p>
+</blockquote>
+<p>将上面两个结果连接在一起</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.* <span class="keyword">FROM</span> a <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> b <span class="keyword">ON</span> a.a_id = b.b_id <span class="keyword">WHERE</span> b.b_id <span class="keyword">IS</span> <span class="literal">NULL</span> <span class="keyword">UNION</span> <span class="keyword">SELECT</span> b.* <span class="keyword">FROM</span> a <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> b <span class="keyword">ON</span> a.a_id = b.b_id <span class="keyword">WHERE</span> a.a_id <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

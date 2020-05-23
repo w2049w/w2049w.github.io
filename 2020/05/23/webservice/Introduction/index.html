@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        webservice/Introduction - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#WebService入门"><span class="toc-text">WebService入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是WebService"><span class="toc-text">什么是WebService</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebService的特点"><span class="toc-text">WebService的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调用网络上的WebService服务"><span class="toc-text">调用网络上的WebService服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SOAP"><span class="toc-text">SOAP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WSDL"><span class="toc-text">WSDL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布一个WebService服务"><span class="toc-text">发布一个WebService服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端调用"><span class="toc-text">客户端调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jdk中wsimport命令使用"><span class="toc-text">jdk中wsimport命令使用</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        webservice/Introduction
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 00:28:43</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="WebService入门"><a href="#WebService入门" class="headerlink" title="WebService入门"></a>WebService入门</h1><h2 id="什么是WebService"><a href="#什么是WebService" class="headerlink" title="什么是WebService"></a>什么是WebService</h2><p>​    Web service是一个<a href="http://baike.baidu.com/view/58664.htm" target="_blank" rel="noopener">平台</a>独立的，低耦合的，自包含的、基于可<a href="http://baike.baidu.com/view/3281.htm" target="_blank" rel="noopener">编程</a>的web的应用程序，可使用开放的<a href="http://baike.baidu.com/view/63.htm" target="_blank" rel="noopener">XML</a>（<a href="http://baike.baidu.com/view/5286041.htm" target="_blank" rel="noopener">标准通用标记语言</a>下的一个子集）<a href="http://baike.baidu.com/view/8079.htm" target="_blank" rel="noopener">标准</a>来<a href="http://baike.baidu.com/view/491264.htm" target="_blank" rel="noopener">描述</a>、发布、发现、协调和配置这些应用程序，用于开发分布式的互操作的<a href="http://baike.baidu.com/view/330120.htm" target="_blank" rel="noopener">应用程序</a>。</p>
+<p>​    Web Service技术， 能使得运行在不同机器上的不同应用无须借助附加的、专门的第三方软件或硬件， 就可相互交换数据或集成。依据Web Service规范实施的应用之间， 无论它们所使用的语言、 平台或内部协议是什么， 都可以相互交换数据。Web Service是自描述、 自包含的可用网络模块， 可以执行具体的业务功能。Web Service也很容易部署， 因为它们基于一些常规的产业标准以及已有的一些技术，诸如<a href="http://baike.baidu.com/view/5286041.htm" target="_blank" rel="noopener">标准通用标记语言</a>下的子集<a href="http://baike.baidu.com/view/63.htm" target="_blank" rel="noopener">XML</a>、HTTP。Web Service减少了应用接口的花费。Web Service为整个企业甚至多个组织之间的业务流程的集成提供了一个通用机制。</p>
+<p><img src="https://cdn.static.note.zzrfdsn.cn/images/201911101542.png" alt="webservice"></p>
+<h2 id="WebService的特点"><a href="#WebService的特点" class="headerlink" title="WebService的特点"></a>WebService的特点</h2><ul>
+<li>WebService通过HTTP POST方式接受客户的请求</li>
+<li>WebService与客户端之间一般使用SOAP协议传输XML数据</li>
+<li>它本身就是为了跨平台或跨语言而设计的</li>
+</ul>
+<h2 id="调用网络上的WebService服务"><a href="#调用网络上的WebService服务" class="headerlink" title="调用网络上的WebService服务"></a>调用网络上的WebService服务</h2><p><a href="http://webxml.com.cn/" target="_blank" rel="noopener">http://webxml.com.cn/</a></p>
+<h2 id="SOAP"><a href="#SOAP" class="headerlink" title="SOAP"></a>SOAP</h2><p>Simple Object Access Protocol：简单对象访问协议</p>
+<ul>
+<li>SOAP作为一个基于XML语言的协议用于在网上传输数据。</li>
+<li>SOAP = 在HTTP的基础上+XML数据。</li>
+<li>SOAP是基于HTTP的。</li>
+</ul>
+<p>SOAP的组成如下：</p>
+<ul>
+<li>Envelope – 必须的部分。以XML的根元素出现。</li>
+<li>Headers – 可选的。</li>
+<li>Body – 必须的。在body部分，包含要执行的服务器的方法。和发送到服务器的数据。</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">POST /WebServices/IpAddressSearchWebService.asmx HTTP/1.1</span><br><span class="line">Host: ws.webxml.com.cn</span><br><span class="line">Content-Type: text/xml; charset=utf-8</span><br><span class="line">Content-Length: length</span><br><span class="line">SOAPAction: "http://WebXml.com.cn/getCountryCityByIp"</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">soap:Envelope</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:xsd</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span> <span class="attr">xmlns:soap</span>=<span class="string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">soap:Body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">getCountryCityByIp</span> <span class="attr">xmlns</span>=<span class="string">"http://WebXml.com.cn/"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">theIpAddress</span>&gt;</span>string<span class="tag">&lt;/<span class="name">theIpAddress</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">getCountryCityByIp</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">soap:Body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">soap:Envelope</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="WSDL"><a href="#WSDL" class="headerlink" title="WSDL"></a>WSDL</h2><p>Web Services Description Language：Web服务描述语言</p>
+<p>​    就是一个xml文档，用于描述当前服务的一些信息（服务名称、服务的发布地址、服务提供的方法、方法的参数类型、方法的返回值类型等）</p>
+<h2 id="发布一个WebService服务"><a href="#发布一个WebService服务" class="headerlink" title="发布一个WebService服务"></a>发布一个WebService服务</h2><p>第一步：创建一个Java项目</p>
+<p>第二步：创建一个类，加入Webservice注解</p>
+<p>第三步：提供一个方法sayHello</p>
+<p>第四步：在main方法中调用jdk提供的发布服务的方法</p>
+<p>第五步：访问服务的wsdl文档（服务的发布地址+?wsdl）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebService</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">(String name,<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"服务端的sayHello方法被调用了。。。。"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"helle"</span> + name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String address = <span class="string">"http://192.168.115.87:8080/hello"</span>;</span><br><span class="line">		Hello implementor = <span class="keyword">new</span> Hello();</span><br><span class="line">		Endpoint.publish(address, implementor);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="客户端调用"><a href="#客户端调用" class="headerlink" title="客户端调用"></a>客户端调用</h2><h3 id="jdk中wsimport命令使用"><a href="#jdk中wsimport命令使用" class="headerlink" title="jdk中wsimport命令使用"></a>jdk中wsimport命令使用</h3><p>作用：解析wsdl文件，生成客户端本地代码</p>
+<p>​    在JDK的bin文件夹中，有一个wsimport.exe工具，可依据wsdl文件生成相应的类文件，将生存在本地这些类文件拷贝到需要使用的项目中，就可以像调用本地的类一样调用webService提供的方法。该工具可以用于非Java的服务器，如用C#编写的WebService，通过wsimport则生成Java的客户端实现。</p>
+<p>参数：</p>
+<p><code>-keep</code>：是否生成java源文件</p>
+<p><code>-d</code>：指定.class文件的输出目录</p>
+<p><code>-s</code>：指定.java文件的输出目录</p>
+<p><code>-p</code>：定义生成类的包名，不定义的话有默认包名</p>
+<p><code>-verbose</code>：在控制台显示输出信息</p>
+<p><code>-b</code>：指定jaxws/jaxb绑定文件或额外的schemas</p>
+<p><code>-extension</code>：使用扩展来支持SOAP1.2</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsimport -s &#x2F;home&#x2F;test&#x2F;wsimport http:&#x2F;&#x2F;192.168.115.87:8080&#x2F;hello?wsdl</span><br></pre></td></tr></table></figure>
+
+
+
+<ol>
+<li>使用wsimport命令解析wsdl文件生成本地代码</li>
+<li>将生成的代码复制到项目中</li>
+<li>通过本地代码创建一个代理对象</li>
+<li>通过代理对象实现远程调用</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		HelloService ss = <span class="keyword">new</span> HelloService();</span><br><span class="line">		<span class="comment">//创建客户端代理对象，用于远程调用</span></span><br><span class="line">		HelloService proxy = ss.getHelloPort();</span><br><span class="line">		String ret = proxy.sayHello(<span class="string">"小明"</span>, <span class="number">10</span>);</span><br><span class="line">		System.out.println(ret);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

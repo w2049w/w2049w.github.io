@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        HashMap和HashTable - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HashMap和HashTable"><span class="toc-text">HashMap和HashTable</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hashmap基本结构讲解"><span class="toc-text">Hashmap基本结构讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储数据过程put-key-value"><span class="toc-text">存储数据过程put(key,value)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试hash算法"><span class="toc-text">测试hash算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结如上过程："><span class="toc-text">总结如上过程：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#取数据过程get-key"><span class="toc-text">取数据过程get(key)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩容问题"><span class="toc-text">扩容问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDK8将链表在大于8情况下变为红黑二叉树"><span class="toc-text">JDK8将链表在大于8情况下变为红黑二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现简单的HashMap"><span class="toc-text">实现简单的HashMap</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        HashMap和HashTable
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 00:00:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#java" title="java">java</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="HashMap和HashTable"><a href="#HashMap和HashTable" class="headerlink" title="HashMap和HashTable"></a>HashMap和HashTable</h1><p>[TOC]</p>
+<p>​      HashMap底层实现采用了哈希表，这是一种非常重要的数据结构。</p>
+<p>​      数据结构中由数组和链表来实现对数据的存储，他们各有特点。</p>
+<p>​      (1) 数组：占用空间连续。 寻址容易，查询速度快。但是，增加和删除效率非常低。</p>
+<p>​      (2) 链表：占用空间不连续。 寻址困难，查询速度慢。但是，增加和删除效率非常高。</p>
+<p>​      那么，我们能不能结合数组和链表的优点(即查询快，增删效率也高)呢? 答案就是“哈希表”。 哈希表的本质就是“数组+链表”。</p>
+<h2 id="Hashmap基本结构讲解"><a href="#Hashmap基本结构讲解" class="headerlink" title="Hashmap基本结构讲解"></a>Hashmap基本结构讲解</h2><p>​      哈希表的基本结构就是“数组+链表”。我们打开HashMap源码，发现有如下两个核心内容：</p>
+<p><img src="https://www.sxt.cn/360shop/Public/admin/UEditor/20170524/1495618960152437.png" alt="图9-12 HashMap底层源码(1).png"></p>
+<p>​      其中的Entry[] table（在jdk1.8中是Node&lt;K,V&gt;[] table） 就是HashMap的核心数组结构，我们也称之为“位桶数组”。我们再继续看Entry是什么，源码如下：</p>
+<p><img src="https://www.sxt.cn/360shop/Public/admin/UEditor/20170524/1495619012687826.png" alt="图9-13 HashMap底层源码(2).png"></p>
+<p>​      一个Entry对象存储了：</p>
+<p>​      1. key：键对象 value：值对象</p>
+<p>​      2. next:下一个节点</p>
+<p>​      3. hash: 键对象的hash值</p>
+<p>​      显然每一个Entry对象就是一个单向链表结构，我们使用图形表示一个Entry对象的典型示意：</p>
+<p><img src="https://www.sxt.cn/360shop/Public/admin/UEditor/20170524/1495619082593896.png" alt="图9-14 Entry对象存储结构图.png"></p>
+<p>图9-14 Entry对象存储结构图</p>
+<p>​      然后，我们画出Entry[]数组的结构(这也是HashMap的结构)：</p>
+<p><img src="https://www.sxt.cn/360shop/Public/admin/UEditor/20170524/1495619119905721.png" alt="图9-15 Entry数组存储结构图.png"></p>
+<h2 id="存储数据过程put-key-value"><a href="#存储数据过程put-key-value" class="headerlink" title="存储数据过程put(key,value)"></a>存储数据过程put(key,value)</h2><p>​      明白了HashMap的基本结构后，我们继续深入学习HashMap如何存储数据。此处的核心是如何产生hash值，该值用来对应数组的存储位置。</p>
+<p><img src="https://www.sxt.cn/360shop/Public/admin/UEditor/20170524/1495619181777762.png" alt="图9-16 HashMap存储数据过程示意图.png"></p>
+<p>图9-16 HashMap存储数据过程示意图</p>
+<p>​      我们的目的是将”key-value两个对象”成对存放到HashMap的Entry[]数组中。参见以下步骤：</p>
+<p>​      (1) 获得key对象的hashcode</p>
+<p>​           首先调用key对象的hashcode()方法，获得hashcode。</p>
+<p>​      (2) 根据hashcode计算出hash值(要求在[0, 数组长度-1]区间)</p>
+<p>​           hashcode是一个整数，我们需要将它转化成[0, 数组长度-1]的范围。我们要求转化后的hash值尽量均匀地分布在[0,数组长度-1]这个区间，减少“hash冲突”</p>
+<p>​           i. 一种极端简单和低下的算法是：</p>
+<p>​           hash值 = hashcode/hashcode;</p>
+<p>​           也就是说，hash值总是1。意味着，键值对对象都会存储到数组索引1位置，这样就形成一个非常长的链表。相当于每存储一个对象都会发生“hash冲突”，HashMap也退化成了一个“链表”。</p>
+<p>​           ii. 一种简单和常用的算法是(相除取余算法)：</p>
+<p>​           hash值 = hashcode%数组长度</p>
+<p>​           这种算法可以让hash值均匀的分布在[0,数组长度-1]的区间。 早期的HashTable就是采用这种算法。但是，这种算法由于使用了“除法”，效率低下。JDK后来改进了算法。首先约定数组长度必须为2的整数幂，这样采用位运算即可实现取余的效果：hash值 = hashcode&amp;(数组长度-1)。</p>
+<p>​           iii. 如下为我们自己测试简单的hash算法：</p>
+<h2 id="测试hash算法"><a href="#测试hash算法" class="headerlink" title="测试hash算法"></a>测试hash算法</h2><p>​      运行程序，我们就能发现直接取余(h%length)和位运算(h&amp;(length-1))结果是一致的。事实上，为了获得更好的散列效果，JDK对hashcode进行了两次散列处理(核心目标就是为了分布更散更均匀)，源码如下：</p>
+<p><img src="https://www.sxt.cn/360shop/Public/admin/UEditor/20170524/1495619395858263.png" alt="图9-17 hash算法源码.png"></p>
+<p>图9-17 hash算法源码</p>
+<p>​      (3) 生成Entry对象</p>
+<p>​          如上所述，一个Entry对象包含4部分：key对象、value对象、hash值、指向下一个Entry对象的引用。我们现在算出了hash值。下一个Entry对象的引用为null。</p>
+<p>​      (4) 将Entry对象放到table数组中</p>
+<p>​          如果本Entry对象对应的数组索引位置还没有放Entry对象，则直接将Entry对象存储进数组;如果对应索引位置已经有Entry对象，则将已有Entry对象的next指向本Entry对象，形成链表。</p>
+<h2 id="总结如上过程："><a href="#总结如上过程：" class="headerlink" title="总结如上过程："></a>总结如上过程：</h2><p>​      当添加一个元素(key-value)时，首先计算key的hash值，以此确定插入数组中的位置，但是可能存在同一hash值的元素已经被放在数组同一位置了，这时就添加到同一hash值的元素的后面，他们在数组的同一位置，就形成了链表，同一个链表上的Hash值是相同的，所以说数组存放的是链表。 JDK8中，当链表长度大于8时，链表就转换为红黑树，这样又大大提高了查找的效率。</p>
+<h2 id="取数据过程get-key"><a href="#取数据过程get-key" class="headerlink" title="取数据过程get(key)"></a>取数据过程get(key)</h2><p>​      我们需要通过key对象获得“键值对”对象，进而返回value对象。明白了存储数据过程，取数据就比较简单了，参见以下步骤：</p>
+<p>​      (1) 获得key的hashcode，通过hash()散列算法得到hash值，进而定位到数组的位置。</p>
+<p>​      (2) 在链表上挨个比较key对象。 调用equals()方法，将key对象和链表上所有节点的key对象进行比较，直到碰到返回true的节点对象为止。</p>
+<p>​      (3) 返回equals()为true的节点对象的value对象。</p>
+<p>​      明白了存取数据的过程，我们再来看一下hashcode()和equals方法的关系：</p>
+<p>​      Java中规定，两个内容相同(equals()为true)的对象必须具有相等的hashCode。因为如果equals()为true而两个对象的hashcode不同;那在整个存储过程中就发生了悖论。</p>
+<h2 id="扩容问题"><a href="#扩容问题" class="headerlink" title="扩容问题"></a>扩容问题</h2><p>​      HashMap的位桶数组，初始大小为16。实际使用时，显然大小是可变的。如果位桶数组中的元素达到(0.75*数组 length)， 就重新调整数组大小变为原来2倍大小。</p>
+<p>​      扩容很耗时。扩容的本质是定义新的更大的数组，并将旧数组内容挨个拷贝到新数组中。</p>
+<h2 id="JDK8将链表在大于8情况下变为红黑二叉树"><a href="#JDK8将链表在大于8情况下变为红黑二叉树" class="headerlink" title="JDK8将链表在大于8情况下变为红黑二叉树"></a>JDK8将链表在大于8情况下变为红黑二叉树</h2><p>​      JDK8中，HashMap在存储一个元素时，当对应链表长度大于8时，链表就转换为红黑树，这样又大大提高了查找的效率。</p>
+<h2 id="实现简单的HashMap"><a href="#实现简单的HashMap" class="headerlink" title="实现简单的HashMap"></a>实现简单的HashMap</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.clboy.map;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> cloudlandboy</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Since</span> 1.0.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHashMap</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 默认初始大小</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_INITIAL_CAPACITY = <span class="number">16</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 存放的键值对的个数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 链表数组</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &lt;K&gt;</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &lt;V&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Node&lt;K, V&gt;[] table;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建对象时初始化数组,容量为默认的16</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyHashMap</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        table = <span class="keyword">new</span> Node[DEFAULT_INITIAL_CAPACITY];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 计算hash</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(<span class="keyword">int</span> hashcode, <span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//对象hashcode与数组长度取余，就是0到数组长度-1</span></span><br><span class="line">        <span class="keyword">int</span> hash = hashcode % num;</span><br><span class="line">        <span class="comment">//hashcode可能为负值</span></span><br><span class="line">        <span class="keyword">return</span> hash &gt; <span class="number">0</span> ? hash : -hash;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 链表中的节点对象</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &lt;K&gt;</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &lt;V&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> hash;</span><br><span class="line">        <span class="keyword">final</span> K key;</span><br><span class="line">        V value;</span><br><span class="line">        MyHashMap.Node&lt;K, V&gt; next;</span><br><span class="line"></span><br><span class="line">        Node(<span class="keyword">int</span> hash, K key, V value, MyHashMap.Node&lt;K, V&gt; next) &#123;</span><br><span class="line">            <span class="keyword">this</span>.hash = hash;</span><br><span class="line">            <span class="keyword">this</span>.key = key;</span><br><span class="line">            <span class="keyword">this</span>.value = value;</span><br><span class="line">            <span class="keyword">this</span>.next = next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加元素</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//首先对key进行hash计算，得出应该放在数组的哪个索引位置</span></span><br><span class="line">        <span class="keyword">int</span> index = hash(key.hashCode(), table.length);</span><br><span class="line">        <span class="comment">//判断该索引位置是否已经存在元素</span></span><br><span class="line">        Node&lt;K, V&gt; temp = table[index];</span><br><span class="line">        <span class="comment">//不存在元素，直接放进去</span></span><br><span class="line">        <span class="keyword">if</span> (temp == <span class="keyword">null</span>) &#123;</span><br><span class="line">            table[index] = <span class="keyword">new</span> Node&lt;K, V&gt;(index, key, value, <span class="keyword">null</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//迭代链表</span></span><br><span class="line">            Node&lt;K, V&gt; last = temp;</span><br><span class="line">            <span class="keyword">while</span> (temp != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="comment">//判断key是否已经存在，存在则覆盖value值</span></span><br><span class="line">                <span class="keyword">if</span> (temp.key.equals(key)) &#123;</span><br><span class="line">                    temp.value = value;</span><br><span class="line">                    <span class="keyword">return</span>;<span class="comment">//添加方法结束,size不改变</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//不存在则继续顺着链表寻找</span></span><br><span class="line">                last = temp;</span><br><span class="line">                temp = temp.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//整个循环结束，没有匹配到相同的key，则直接放到链表末尾</span></span><br><span class="line">            last.next = <span class="keyword">new</span> Node&lt;K, V&gt;(index, key, value, <span class="keyword">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        size++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取元素</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> key</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> V <span class="title">get</span><span class="params">(K key)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//先对key取hash</span></span><br><span class="line">        <span class="keyword">int</span> index = hash(key.hashCode(), table.length);</span><br><span class="line">        <span class="comment">//获取与hash对应下标处的元素</span></span><br><span class="line">        Node&lt;K, V&gt; temp = table[index];</span><br><span class="line">        <span class="comment">//迭代进行key比较</span></span><br><span class="line">        <span class="keyword">while</span> (temp != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (temp.key.equals(key)) &#123;</span><br><span class="line">                <span class="keyword">return</span> temp.value;</span><br><span class="line">            &#125;</span><br><span class="line">            temp = temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//循环完毕，没有查到返回null</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        StringBuilder str = <span class="keyword">new</span> StringBuilder(<span class="string">"&#123;"</span>);</span><br><span class="line">        <span class="keyword">for</span> (Node&lt;K, V&gt; node : table) &#123;</span><br><span class="line">            <span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">                str.append(node.key + <span class="string">":"</span> + node.value + <span class="string">","</span>);</span><br><span class="line">                node = node.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        str.setCharAt(str.length() - <span class="number">1</span>, <span class="string">'&#125;'</span>);</span><br><span class="line">        <span class="keyword">return</span> str.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.clboy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.clboy.map.MyHashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyHashMap&lt;String, String&gt; map = <span class="keyword">new</span> MyHashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">50</span>; i++) &#123;</span><br><span class="line">            map.put(i + <span class="string">""</span>, <span class="string">"hello_map"</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        map.put(<span class="string">"1"</span>, <span class="string">"hello_map_up_001"</span>);</span><br><span class="line">        System.out.println(map.getSize());</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"--------------------------------------"</span>);</span><br><span class="line">        <span class="comment">//获取元素</span></span><br><span class="line">        String val1 = map.get(<span class="string">"33"</span>);</span><br><span class="line">        System.out.println(val1);</span><br><span class="line">        <span class="comment">//重新设置值</span></span><br><span class="line">        map.put(<span class="string">"33"</span>, <span class="string">"update_33"</span>);</span><br><span class="line">        <span class="comment">//再获取</span></span><br><span class="line">        String val2 = map.get(<span class="string">"33"</span>);</span><br><span class="line">        System.out.println(val2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//toString</span></span><br><span class="line">        map = <span class="keyword">new</span> MyHashMap&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">"name"</span>, <span class="string">"张三"</span>);</span><br><span class="line">        map.put(<span class="string">"age"</span>, <span class="string">"33"</span>);</span><br><span class="line">        map.put(<span class="string">"gender"</span>, <span class="string">"男"</span>);</span><br><span class="line">        map.put(<span class="string">"address"</span>, <span class="string">"北京市朝阳区"</span>);</span><br><span class="line">        System.out.println(map);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

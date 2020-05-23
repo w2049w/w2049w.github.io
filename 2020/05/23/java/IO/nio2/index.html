@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        NIO2 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#NIO-2"><span class="toc-text">NIO.2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Path-与-Paths"><span class="toc-text">Path 与 Paths</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Files"><span class="toc-text">Files</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动资源管理"><span class="toc-text">自动资源管理</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        NIO2
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 00:00:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#java" title="java">java</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="NIO-2"><a href="#NIO-2" class="headerlink" title="NIO.2"></a>NIO.2</h1><blockquote>
+<p>随着 JDK 7 的发布，Java对NIO进行了极大的扩展，增强了对文件处理和文件系统特性的支持，以至于我们称他们为 NIO.2。因为 NIO 提供的一些功能，NIO已经成为文件处理中越来越重要的部分。</p>
+</blockquote>
+<h2 id="Path-与-Paths"><a href="#Path-与-Paths" class="headerlink" title="Path 与 Paths"></a>Path 与 Paths</h2><blockquote>
+<p>java.nio.file.Path 接口代表一个平台无关的平台路径，描述了目录结构中文件的位置。</p>
+</blockquote>
+<blockquote>
+<p>Paths 提供的 get() 方法用来获取 Path 对象：</p>
+</blockquote>
+<p><code>Path get(String first, String … more)</code> : 用于将多个字符串串连成路径</p>
+<blockquote>
+<p>Path 常用方法</p>
+</blockquote>
+<ul>
+<li><code>boolean endsWith(String path)</code> : 判断是否以 path 路径结束</li>
+<li><code>boolean startsWith(String path)</code> : 判断是否以 path 路径开始</li>
+<li><code>boolean isAbsolute()</code> : 判断是否是绝对路径</li>
+<li><code>Path getFileName()</code> : 返回与调用 Path 对象关联的文件名</li>
+<li><code>Path getName(int idx)</code> : 返回的指定索引位置 idx 的路径名称</li>
+<li><code>int getNameCount()</code> : 返回Path 根目录后面元素的数量</li>
+<li><code>Path getParent()</code> ：返回Path对象包含整个路径，不包含 Path 对象指定的文件路径</li>
+<li><code>Path getRoot()</code> ：返回调用 Path 对象的根路径</li>
+<li><code>Path resolve(Path p)</code> :将相对路径解析为绝对路径</li>
+<li><code>Path toAbsolutePath()</code> : 作为绝对路径返回调用 Path 对象</li>
+<li><code>String toString()</code> ： 返回调用 Path 对象的字符串表示</li>
+</ul>
+<h2 id="Files"><a href="#Files" class="headerlink" title="Files"></a>Files</h2><blockquote>
+<p>java.nio.file.Files 用于操作文件或目录的工具类。</p>
+</blockquote>
+<blockquote>
+<p>Files常用方法</p>
+</blockquote>
+<ul>
+<li><code>Path copy(Path src, Path dest, CopyOption … how)</code> : 文件的复制</li>
+<li><code>Path createDirectory(Path path, FileAttribute&lt;?&gt; … attr)</code> : 创建一个目录</li>
+<li><code>Path createFile(Path path, FileAttribute&lt;?&gt; … arr)</code> : 创建一个文件</li>
+<li><code>void delete(Path path)</code> : 删除一个文件</li>
+<li><code>Path move(Path src, Path dest, CopyOption…how)</code> : 将 src 移动到 dest 位置</li>
+<li><code>long size(Path path)</code> : 返回 path 指定文件的</li>
+<li><code>boolean exists(Path path, LinkOption … opts)</code> : 判断文件是否存在</li>
+<li><code>boolean isDirectory(Path path, LinkOption … opts)</code> : 判断是否是目录</li>
+<li><code>boolean isExecutable(Path path)</code> : 判断是否是可执行文件</li>
+<li><code>boolean isHidden(Path path)</code> : 判断是否是隐藏文件</li>
+<li><code>boolean isReadable(Path path)</code> : 判断文件是否可</li>
+<li><code>boolean isWritable(Path path)</code> : 判断文件是否可写</li>
+<li><code>boolean notExists(Path path, LinkOption … opts)</code> : 判断文件是否不存在</li>
+<li><code>public static &lt;A extends BasicFileAttributes&gt; A readAttributes(Path path,Class&lt;A&gt; type,LinkOption...</code> <code>options)</code> : 获取与 path 指定的文件相关联的属</li>
+<li><code>SeekableByteChannel newByteChannel(Path path, OpenOption…how)</code> : 获取与指定文件的连接，<br>how 指定打开方式。</li>
+<li><code>DirectoryStream newDirectoryStream(Path path)</code> : 打开 path 指定的目录</li>
+<li><code>InputStream newInputStream(Path path, OpenOption…how)</code>:获取 InputStream 对象</li>
+<li><code>OutputStream newOutputStream(Path path, OpenOption…how)</code> : 获取 OutputStream 对象</li>
+</ul>
+<h2 id="自动资源管理"><a href="#自动资源管理" class="headerlink" title="自动资源管理"></a>自动资源管理</h2><blockquote>
+<p>Java 7 增加了一个新特性，该特性提供了另外一种管理资源的方式，这种方式能自动关闭文<br>件。这个特性有时被称为自动资源管理(Automatic Resource Management, ARM)<br>该特性以 try 语句的扩展版为基础。自动资源管理主要用于，当不再需要文件（或其他资源）时，可以防止无意中忘记释放它们。</p>
+</blockquote>
+<p><strong>自动资源管理基于 try 语句的扩展形式：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (需要关闭的资源声明) &#123;</span><br><span class="line">    <span class="comment">//可能发生异常的</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    <span class="comment">//异常的处理</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">	<span class="comment">//一定执行的语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当 try 代码块结束时，自动释放资源。因此不需要显示的调用 close() 方法。该形式也称为“带资源的 try 语句”。</p>
+<p><strong>注意：</strong></p>
+<ol>
+<li>try 语句中声明的资源被隐式声明为 final ，资源的作用局限于带资源的 try 语句</li>
+<li>可以在一条 try 语句中管理多个资源，每个资源以“;” 隔开即可。</li>
+<li>需要关闭的资源，必须实现了 AutoCloseable 接口或其自接口 Closeable</li>
+</ol>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

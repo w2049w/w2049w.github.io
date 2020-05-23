@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        mysql/subquery - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#子查询"><span class="toc-text">子查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#含义"><span class="toc-text">含义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类"><span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#按出现位置"><span class="toc-text">按出现位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按结果集的行列"><span class="toc-text">按结果集的行列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#where或having后面"><span class="toc-text">where或having后面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标量子查询"><span class="toc-text">标量子查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列子查询"><span class="toc-text">列子查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#行子查询"><span class="toc-text">行子查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#select后面"><span class="toc-text">select后面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#from后面"><span class="toc-text">from后面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exists后面（相关子查询）"><span class="toc-text">exists后面（相关子查询）</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        mysql/subquery
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 00:28:43</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h1><h2 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h2><p>嵌套在其他语句内部的select语句称为子查询或内查询，<br>外面的语句可以是insert、update、delete、select等，一般select作为外面语句较多<br>外面如果为select语句，则此语句称为外查询或主查询</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="按出现位置"><a href="#按出现位置" class="headerlink" title="按出现位置"></a>按出现位置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">select后面：</span><br><span class="line">		仅仅支持标量子查询</span><br><span class="line">from后面：</span><br><span class="line">		表子查询</span><br><span class="line">where或having后面：</span><br><span class="line">		标量子查询</span><br><span class="line">		列子查询</span><br><span class="line">		行子查询</span><br><span class="line">exists后面：</span><br><span class="line">		标量子查询</span><br><span class="line">		列子查询</span><br><span class="line">		行子查询</span><br><span class="line">		表子查询</span><br></pre></td></tr></table></figure>
+
+<h3 id="按结果集的行列"><a href="#按结果集的行列" class="headerlink" title="按结果集的行列"></a>按结果集的行列</h3><p>标量子查询（单行子查询）：结果集为一行一列<br>列子查询（多行子查询）：结果集为多行一列<br>行子查询：结果集为多行多列<br>表子查询：结果集为多行多列</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="where或having后面"><a href="#where或having后面" class="headerlink" title="where或having后面"></a>where或having后面</h3><ol>
+<li>标量子查询（单行单列）</li>
+<li>列子查询（多行单列）</li>
+<li>行子查询（多行多列）</li>
+</ol>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>① 子查询放在小括号内<br>② 子查询一般放在条件的右侧<br>③ 标量子查询，一般搭配着单行操作符使用  </p>
+<blockquote>
+<p>&lt;、&gt;、&lt;=、&gt;=、=、&lt;&gt;</p>
+</blockquote>
+<p>④ 列子查询，一般搭配着多行操作符使用  </p>
+<blockquote>
+<p>in、any/some、all</p>
+</blockquote>
+<p>⑤ 子查询的执行优先于主查询执行，主查询的条件用到了子查询的结果  </p>
+<h3 id="标量子查询"><a href="#标量子查询" class="headerlink" title="标量子查询"></a>标量子查询</h3><ol>
+<li><p>谁的工资比 Abel 高?</p>
+<p>① 查询Abel的工资</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT salary</span><br><span class="line">FROM employees</span><br><span class="line">WHERE last_name &#x3D; &#39;Abel&#39;</span><br></pre></td></tr></table></figure>
+
+<p>②查询员工的信息，满足 salary&gt;①结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM employees</span><br><span class="line">WHERE salary&gt;(</span><br><span class="line"></span><br><span class="line">	SELECT salary</span><br><span class="line">	FROM employees</span><br><span class="line">	WHERE last_name &#x3D; &#39;Abel&#39;</span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>返回job_id与141号员工相同，salary比143号员工多的员工 姓名，job_id 和工资</p>
+<p>① 查询141号员工的job_id</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT job_id</span><br><span class="line">FROM employees</span><br><span class="line">WHERE employee_id &#x3D; 141</span><br></pre></td></tr></table></figure>
+
+<p>② 查询143号员工的salary</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT salary</span><br><span class="line">FROM employees</span><br><span class="line">WHERE employee_id &#x3D; 143</span><br></pre></td></tr></table></figure>
+
+<p>③ 查询员工的姓名，job_id 和工资，要求job_id=①并且salary&gt;②</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SELECT last_name,job_id,salary</span><br><span class="line">FROM employees</span><br><span class="line">WHERE job_id &#x3D; (</span><br><span class="line">	SELECT job_id</span><br><span class="line">	FROM employees</span><br><span class="line">	WHERE employee_id &#x3D; 141</span><br><span class="line">) AND salary&gt;(</span><br><span class="line">	SELECT salary</span><br><span class="line">	FROM employees</span><br><span class="line">	WHERE employee_id &#x3D; 143</span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p>返回公司工资最少的员工的last_name,job_id和salary</p>
+<p>① 查询公司的 最低工资</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT MIN(salary)</span><br><span class="line">FROM employees</span><br></pre></td></tr></table></figure>
+
+<p>② 查询last_name,job_id和salary，要求salary=①</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT last_name,job_id,salary</span><br><span class="line">FROM employees</span><br><span class="line">WHERE salary&#x3D;(</span><br><span class="line">	SELECT MIN(salary)</span><br><span class="line">	FROM employees</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p>查询最低工资大于50号部门最低工资的部门id和其最低工资</p>
+<p>① 查询50号部门的最低工资</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT  MIN(salary)</span><br><span class="line">FROM employees</span><br><span class="line">WHERE department_id &#x3D; 50</span><br></pre></td></tr></table></figure>
+
+<p>② 查询每个部门的最低工资</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT MIN(salary),department_id</span><br><span class="line">FROM employees</span><br><span class="line">GROUP BY department_id</span><br></pre></td></tr></table></figure>
+
+<p>③ 在②基础上筛选，满足min(salary)&gt;①</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT MIN(salary),department_id</span><br><span class="line">FROM employees</span><br><span class="line">GROUP BY department_id</span><br><span class="line">HAVING MIN(salary)&gt;(</span><br><span class="line">	SELECT  MIN(salary)</span><br><span class="line">	FROM employees</span><br><span class="line">	WHERE department_id &#x3D; 50</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="5">
+<li><p><span style="color:red">非法使用标量子查询</span></p>
+<del>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT MIN(salary),department_id</span><br><span class="line">FROM employees</span><br><span class="line">GROUP BY department_id</span><br><span class="line">HAVING MIN(salary)&gt;(</span><br><span class="line">	SELECT  salary</span><br><span class="line">	FROM employees</span><br><span class="line">	WHERE department_id &#x3D; 250</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+</del>
+
+<p>这里250号部门的员工可能不止一个人，查询的是多行单列，就是列子查询了</p>
+</li>
+</ol>
+<h3 id="列子查询"><a href="#列子查询" class="headerlink" title="列子查询"></a>列子查询</h3><table>
+<thead>
+<tr>
+<th align="center">操作符</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">IN/NOT IN</td>
+<td align="center">等于列表中的任意一个</td>
+</tr>
+<tr>
+<td align="center">ANY|SOME</td>
+<td align="center">和子查询返回的某一个值比较</td>
+</tr>
+<tr>
+<td align="center">ALL</td>
+<td align="center">和子查询返回的所有值比较</td>
+</tr>
+</tbody></table>
+<ol>
+<li><p>返回location_id是1400或1700的部门中的所有员工姓名</p>
+<p>①查询location_id是1400或1700的<code>部门编号</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT department_id</span><br><span class="line">FROM departments</span><br><span class="line">WHERE location_id IN(1400,1700)</span><br></pre></td></tr></table></figure>
+
+<p>② 查询员工姓名，要求部门号是①列表中的某一个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT last_name</span><br><span class="line">FROM employees</span><br><span class="line">WHERE department_id IN(</span><br><span class="line">	SELECT DISTINCT department_id</span><br><span class="line">	FROM departments</span><br><span class="line">	WHERE location_id IN(1400,1700)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>返回其它工种中比job_id为‘IT_PROG’工种任一工资低的员工的员工号、姓名、job_id 以及salary</p>
+<p>① 查询job_id为‘IT_PROG’部门任一工资</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT salary</span><br><span class="line">FROM employees</span><br><span class="line">WHERE job_id &#x3D; &#39;IT_PROG&#39;;</span><br></pre></td></tr></table></figure>
+
+<p>② 查询员工号、姓名、job_id 以及salary，salary&lt;(①)的任意一个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT last_name,employee_id,job_id,salary</span><br><span class="line">FROM employees</span><br><span class="line">WHERE salary&lt;ANY(</span><br><span class="line">	SELECT DISTINCT salary</span><br><span class="line">	FROM employees</span><br><span class="line">	WHERE job_id &#x3D; &#39;IT_PROG&#39;</span><br><span class="line"></span><br><span class="line">) AND job_id&lt;&gt;&#39;IT_PROG&#39;;</span><br></pre></td></tr></table></figure>
+
+<p>或者(小于最大值，就肯定满足任意一个)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT last_name,employee_id,job_id,salary</span><br><span class="line">FROM employees</span><br><span class="line">WHERE salary&lt;(</span><br><span class="line">	SELECT MAX(salary)</span><br><span class="line">	FROM employees</span><br><span class="line">	WHERE job_id &#x3D; &#39;IT_PROG&#39;</span><br><span class="line"></span><br><span class="line">) AND job_id&lt;&gt;&#39;IT_PROG&#39;;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p>返回其它部门中比job_id为‘IT_PROG’部门所有工资都低的员工   的员工号、姓名、job_id 以及salary</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT last_name,employee_id,job_id,salary</span><br><span class="line">FROM employees</span><br><span class="line">WHERE salary&lt;ALL(</span><br><span class="line">	SELECT DISTINCT salary</span><br><span class="line">	FROM employees</span><br><span class="line">	WHERE job_id &#x3D; &#39;IT_PROG&#39;</span><br><span class="line"></span><br><span class="line">) AND job_id&lt;&gt;&#39;IT_PROG&#39;;</span><br></pre></td></tr></table></figure>
+
+<p>或者（小于最小的）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT last_name,employee_id,job_id,salary</span><br><span class="line">FROM employees</span><br><span class="line">WHERE salary&lt;(</span><br><span class="line">	SELECT MIN( salary)</span><br><span class="line">	FROM employees</span><br><span class="line">	WHERE job_id &#x3D; &#39;IT_PROG&#39;</span><br><span class="line"></span><br><span class="line">) AND job_id&lt;&gt;&#39;IT_PROG&#39;;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h3 id="行子查询"><a href="#行子查询" class="headerlink" title="行子查询"></a>行子查询</h3><ol>
+<li><p>查询员工编号最小并且工资最高的员工信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT * </span><br><span class="line">FROM employees</span><br><span class="line">WHERE (employee_id,salary)&#x3D;(</span><br><span class="line">	SELECT MIN(employee_id),MAX(salary)</span><br><span class="line">	FROM employees</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM employees</span><br><span class="line">WHERE employee_id&#x3D;(</span><br><span class="line">	SELECT MIN(employee_id)</span><br><span class="line">	FROM employees</span><br><span class="line">)AND salary&#x3D;(</span><br><span class="line">	SELECT MAX(salary)</span><br><span class="line">	FROM employees</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="select后面"><a href="#select后面" class="headerlink" title="select后面"></a>select后面</h3><p>仅仅支持标量子查询</p>
+<ol>
+<li><p>查询每个部门的员工个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT d.*,(</span><br><span class="line">	SELECT COUNT(*)</span><br><span class="line">	FROM employees e</span><br><span class="line">	WHERE e.department_id &#x3D; d.&#96;department_id&#96;</span><br><span class="line"> ) 个数</span><br><span class="line"> FROM departments d;</span><br></pre></td></tr></table></figure>
+
+<p>或者(使用外连接)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	d.*,</span><br><span class="line">	count( e.employee_id ) 个数 </span><br><span class="line">FROM</span><br><span class="line">	employees e</span><br><span class="line">	RIGHT JOIN departments d ON e.department_id &#x3D; d.department_id </span><br><span class="line">GROUP BY</span><br><span class="line">	d.department_id;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>查询员工号=102的部门名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT department_id,( </span><br><span class="line">    SELECT department_name </span><br><span class="line">    FROM departments d </span><br><span class="line">    WHERE department_id &#x3D; e.department_id </span><br><span class="line">) </span><br><span class="line">FROM</span><br><span class="line">	employees e </span><br><span class="line">WHERE</span><br><span class="line">	e.employee_id &#x3D; 102;</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT department_name,e.department_id</span><br><span class="line">FROM departments d</span><br><span class="line">INNER JOIN employees e</span><br><span class="line">ON d.department_id&#x3D;e.department_id</span><br><span class="line">WHERE e.employee_id&#x3D;102;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h3 id="from后面"><a href="#from后面" class="headerlink" title="from后面"></a>from后面</h3><p>将子查询结果充当一张表，要求必须起别名</p>
+<ol>
+<li><p>查询每个部门的平均工资的工资等级</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT  ag_dep.*,g.&#96;grade_level&#96;</span><br><span class="line">FROM (</span><br><span class="line">	SELECT AVG(salary) ag,department_id</span><br><span class="line">	FROM employees</span><br><span class="line">	GROUP BY department_id</span><br><span class="line">) ag_dep</span><br><span class="line">INNER JOIN job_grades g</span><br><span class="line">ON ag_dep.ag BETWEEN lowest_sal AND highest_sal;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h3 id="exists后面（相关子查询）"><a href="#exists后面（相关子查询）" class="headerlink" title="exists后面（相关子查询）"></a>exists后面（相关子查询）</h3><p>判断子查询是否存在结果，存在返回1，不能存在返回0，可用于筛选判断</p>
+<ol>
+<li><p>查询有员工的部门名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT department_name</span><br><span class="line">FROM departments d</span><br><span class="line">WHERE EXISTS(</span><br><span class="line">	SELECT *</span><br><span class="line">	FROM employees e</span><br><span class="line">	WHERE d.&#96;department_id&#96;&#x3D;e.&#96;department_id&#96;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询没有女朋友的男神信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT bo.*</span><br><span class="line">FROM boys bo</span><br><span class="line">WHERE NOT EXISTS(</span><br><span class="line">	SELECT boyfriend_id</span><br><span class="line">	FROM beauty b</span><br><span class="line">	WHERE bo.&#96;id&#96;&#x3D;b.&#96;boyfriend_id&#96;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT bo.*</span><br><span class="line">FROM boys bo</span><br><span class="line">WHERE bo.id NOT IN(</span><br><span class="line">	SELECT boyfriend_id</span><br><span class="line">	FROM beauty</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<p>能用exists的地方就都可以用In替代</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

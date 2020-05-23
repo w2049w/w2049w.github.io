@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        java数组 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA数组"><span class="toc-text">JAVA数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组的copy"><span class="toc-text">数组的copy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从数组中删除某个元素"><span class="toc-text">从数组中删除某个元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组的扩容"><span class="toc-text">数组的扩容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#冒泡排序"><span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二分法查找"><span class="toc-text">二分法查找</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        java数组
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-22 23:31:26</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#java" title="java">java</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Linux下使用hexo+vscode+markdown编写博客</p>
+<h1 id="JAVA数组"><a href="#JAVA数组" class="headerlink" title="JAVA数组"></a>JAVA数组</h1><p>[TOC]</p>
+<h2 id="数组的copy"><a href="#数组的copy" class="headerlink" title="数组的copy"></a>数组的copy</h2><p> <mark>src：</mark> copy的源数组<br> <mark>srcPos：</mark>从哪个索引处开始<br> <mark>dest：</mark>拷贝到的目标数据<br> <mark>destPos：</mark>从目标数据的哪个位置开始放<br> <mark>length：</mark>复制几个元素<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copy</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    String[] src = &#123;<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>&#125;;</span><br><span class="line">    String[] dest = <span class="keyword">new</span> String[<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将src中的b和c复制到dest的[1]和[2]位置</span></span><br><span class="line">    </span><br><span class="line">    System.arraycopy(src, <span class="number">1</span>, dest, <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    System.out.println(Arrays.toString(dest));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>输出结果：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[null, b, c, null]</span><br></pre></td></tr></table></figure>
+<h2 id="从数组中删除某个元素"><a href="#从数组中删除某个元素" class="headerlink" title="从数组中删除某个元素"></a>从数组中删除某个元素</h2><p>本质上还是数组的拷贝  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] src = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">88</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//删除88,就应该从88的下一个元素的下标开始复制到结尾，复制到的数组还是src，从88的下标处开始放</span></span><br><span class="line">    System.arraycopy(src, <span class="number">3</span>, src, <span class="number">2</span>, src.length - <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//然后删除最后一个元素</span></span><br><span class="line">    src[src.length - <span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    System.out.println(Arrays.toString(src));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 5, 0]</span><br></pre></td></tr></table></figure>
+<p>封装成方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(String[] array, <span class="keyword">int</span> index)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    System.arraycopy(array, index + <span class="number">1</span>, array, index, array.length - index - <span class="number">1</span>);</span><br><span class="line">    array[array.length - <span class="number">1</span>] = <span class="keyword">null</span>;</span><br><span class="line">    System.out.println(Arrays.toString(array));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组的扩容"><a href="#数组的扩容" class="headerlink" title="数组的扩容"></a>数组的扩容</h2><p>本质上是：先定义一个更大的数组，然后将原数组内容原封不动拷贝到新数组中  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String[] arr = &#123;<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>&#125;;</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line">        arr = enlarge(arr, <span class="number">10</span>);</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String[] enlarge(String[] array, <span class="keyword">int</span> num) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//        String[] newArray = new String[array.length + num];</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        System.arraycopy(array, 0, newArray, 0, array.length);</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        return newArray;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Arrays.copyOf(array,num);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[a, b, c]</span><br><span class="line">[a, b, c, null, null, null, null, null, null, null]</span><br></pre></td></tr></table></figure>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p><img src="https://cdn.static.note.zzrfdsn.cn/images/1258817-20190325093445247-432584102.gif" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123;<span class="number">3</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>&#125;;</span><br><span class="line">    bubbleSort(arr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] array)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    <span class="comment">//两两比较减去一次多余的</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; array.length - <span class="number">1</span>; k++) &#123;</span><br><span class="line">        <span class="keyword">boolean</span> done = <span class="keyword">true</span>;</span><br><span class="line">        <span class="comment">//循环一轮找出最大值，每一轮就会找出一个最大值就没有必要再循环全部，只需要循环到上一个最大值前即可</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span> - k; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[i] &gt; array[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                temp = array[i];</span><br><span class="line">                array[i] = array[i + <span class="number">1</span>];</span><br><span class="line">                array[i + <span class="number">1</span>] = temp;</span><br><span class="line">                done = <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(Arrays.toString(array));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果一轮循环完毕没有一个位置对换，就说明排序完毕，跳出循环</span></span><br><span class="line">        <span class="keyword">if</span> (done) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"------------------------------"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二分法查找"><a href="#二分法查找" class="headerlink" title="二分法查找"></a>二分法查找</h2><p>二分法查找原理：  </p>
+<ol>
+<li><p>只要低位下标不大于高位下标，就进行二分查找</p>
+</li>
+<li><p>先在有序的数组中对半查找中间的坐标，如果中标和要查找的下标相等时，找到目标数，那二分结束。</p>
+</li>
+<li><p>如果步骤2没有找到，那就会出现先2种情况：a、中标大于find值；b、中标小于find值；</p>
+<p>a. 如果中标大于find值，说明find值在中标的左边，那么高位就是此时的中标，然后继续二分</p>
+<p>b. 如果中标小于find值，说明find值在中标的右边，那么低位就是此时的中标，然后继续二分</p>
+</li>
+<li><p>如果低位下标大于高位下标：那就是没有这个想要查找的find值</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">3</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>&#125;;</span><br><span class="line">        <span class="comment">//需要先对数据进行排序</span></span><br><span class="line">        Arrays.sort(arr);</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line">        <span class="keyword">int</span> index = binarySearch(arr, <span class="number">0</span>);</span><br><span class="line">        System.out.println(index);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> key)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> end = array.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (start &lt;= end) &#123;</span><br><span class="line">            <span class="comment">//取中间数</span></span><br><span class="line">            <span class="keyword">int</span> middle = (start + end) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (key &lt; array[middle]) &#123;</span><br><span class="line">                <span class="comment">//要查找的数比中间数小，那就把查找结尾值变为中间值减去一</span></span><br><span class="line">                end = middle - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (key &gt; array[middle]) &#123;</span><br><span class="line">                <span class="comment">//要查找的数比中间数大，那就把查找开始位置变为中间值加一</span></span><br><span class="line">                start = middle + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//等于中间值</span></span><br><span class="line">                <span class="keyword">return</span> middle;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//没有查到</span></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//       return Arrays.binarySearch(array,key);</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

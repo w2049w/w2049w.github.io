@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        mysql/singlerowfunctions - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#单行函数"><span class="toc-text">单行函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符函数"><span class="toc-text">字符函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#length-s"><span class="toc-text">length(s)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CONCAT-s1-s2…sn"><span class="toc-text">CONCAT(s1,s2…sn)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UPPER-s"><span class="toc-text">UPPER(s)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOWER-s"><span class="toc-text">LOWER(s)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SUBSTR-s-start-length-、SUBSTRING"><span class="toc-text">SUBSTR(s, start, length)、SUBSTRING()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#INSTR-s-s"><span class="toc-text">INSTR(s,s)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TRIM-s"><span class="toc-text">TRIM(s)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LPAD-s1-len-s2"><span class="toc-text">LPAD(s1,len,s2)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPAD-s1-len-s2"><span class="toc-text">RPAD(s1,len,s2)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#REPLACE-s-s1-s2"><span class="toc-text">REPLACE(s,s1,s2)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数学函数"><span class="toc-text">数学函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ROUND-x"><span class="toc-text">ROUND(x)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CEIL-x"><span class="toc-text">CEIL(x)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FLOOR-x"><span class="toc-text">FLOOR(x)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TRUNCATE-x-y"><span class="toc-text">TRUNCATE(x,y)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MOD-x-y"><span class="toc-text">MOD(x,y)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日期函数"><span class="toc-text">日期函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#NOW"><span class="toc-text">NOW()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CURDATE"><span class="toc-text">CURDATE()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CURTIME"><span class="toc-text">CURTIME()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#YEAR-d"><span class="toc-text">YEAR(d)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MONTH-d"><span class="toc-text">MONTH(d)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MONTHNAME-d"><span class="toc-text">MONTHNAME(d)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STR-TO-DATE-s-f"><span class="toc-text">STR_TO_DATE(s, f)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DATE-FORMAT-d-f"><span class="toc-text">DATE_FORMAT(d,f)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他函数"><span class="toc-text">其他函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VERSION"><span class="toc-text">VERSION()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DATABASE"><span class="toc-text">DATABASE()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#USER"><span class="toc-text">USER()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程控制函数"><span class="toc-text">流程控制函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IF-expr-v1-v2"><span class="toc-text">IF(expr,v1,v2)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CASE"><span class="toc-text">CASE</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        mysql/singlerowfunctions
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 00:28:43</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="单行函数"><a href="#单行函数" class="headerlink" title="单行函数"></a>单行函数</h1><h2 id="字符函数"><a href="#字符函数" class="headerlink" title="字符函数"></a>字符函数</h2><h3 id="length-s"><a href="#length-s" class="headerlink" title="length(s)"></a>length(s)</h3><p>获取参数值的字符个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT LENGTH(&#39;john&#39;);</span><br><span class="line">SELECT LENGTH(&#39;张三丰hahaha&#39;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="CONCAT-s1-s2…sn"><a href="#CONCAT-s1-s2…sn" class="headerlink" title="CONCAT(s1,s2…sn)"></a>CONCAT(s1,s2…sn)</h3><p> 拼接字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT CONCAT(last_name,&#39;_&#39;,first_name) 姓名 FROM employees;</span><br></pre></td></tr></table></figure>
+
+<h3 id="UPPER-s"><a href="#UPPER-s" class="headerlink" title="UPPER(s)"></a>UPPER(s)</h3><p>将字符串转换为大写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT UPPER(&#39;john&#39;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="LOWER-s"><a href="#LOWER-s" class="headerlink" title="LOWER(s)"></a>LOWER(s)</h3><p>将字符串转换为小写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT LOWER(&#39;joHn&#39;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 示例：将姓变大写，名变小写，然后拼接</span><br><span class="line">SELECT CONCAT(UPPER(last_name),LOWER(first_name))  姓名 FROM employees;</span><br></pre></td></tr></table></figure>
+
+<h3 id="SUBSTR-s-start-length-、SUBSTRING"><a href="#SUBSTR-s-start-length-、SUBSTRING" class="headerlink" title="SUBSTR(s, start, length)、SUBSTRING()"></a>SUBSTR(s, start, length)、SUBSTRING()</h3><p>SUBSTR(s, start, length)：从字符串 s 的 start 位置截取长度为 length 的子字符串</p>
+<p>截取字符串（注意：索引从1开始）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SUBSTR(&#39;李莫愁爱上了陆展元&#39;,7)  out_put;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SUBSTRING(&#39;李莫愁爱上了陆展元&#39;,7)  out_put;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT SUBSTR(&#39;李莫愁爱上了陆展元&#39;,1,3)  out_put;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 案例：姓名中首字符大写，其他字符小写然后用_拼接，显示出来</span><br><span class="line"></span><br><span class="line">SELECT CONCAT(UPPER(SUBSTR(last_name,1,1)),&#39;_&#39;,LOWER(SUBSTR(last_name,2)))  out_put</span><br><span class="line">FROM employees;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="INSTR-s-s"><a href="#INSTR-s-s" class="headerlink" title="INSTR(s,s)"></a>INSTR(s,s)</h3><p>返回子串第一次出现的索引，如果找不到返回0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT INSTR(&#39;杨不殷六侠悔爱上了殷六侠&#39;,&#39;殷八侠&#39;) AS out_put;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="TRIM-s"><a href="#TRIM-s" class="headerlink" title="TRIM(s)"></a>TRIM(s)</h3><p>LTRIM(s)：去掉字符串 s <strong>开始</strong>处的空格</p>
+<p>RTRIM(s)：去掉字符串 s <strong>结尾</strong>处的空格</p>
+<p> 去掉字符串开始和结尾处的空格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT LENGTH(TRIM(&#39;    张翠山    &#39;)) AS out_put;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="LPAD-s1-len-s2"><a href="#LPAD-s1-len-s2" class="headerlink" title="LPAD(s1,len,s2)"></a>LPAD(s1,len,s2)</h3><p>在字符串 s1 的<code>开始</code>处填充字符串 s2，使字符串长度达到 len</p>
+<p>如果长度小于原字符串，则只取前len个字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT LPAD(&#39;殷素素&#39;,5,&#39;*&#39;) AS out_put;	--&gt; **殷素素</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT LPAD(&#39;殷素素&#39;,2,&#39;*&#39;) AS out_put;	--&gt; 殷素</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="RPAD-s1-len-s2"><a href="#RPAD-s1-len-s2" class="headerlink" title="RPAD(s1,len,s2)"></a>RPAD(s1,len,s2)</h3><p> 在字符串 s1 的<code>结尾</code>处添加字符串 s2，使字符串的长度达到 len</p>
+<p>如果长度小于原字符串，则只取前len个字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT RPAD(&#39;殷素素&#39;,5,&#39;*&#39;) AS out_put;	--&gt; 殷素素**</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT RPAD(&#39;殷素素&#39;,2,&#39;*&#39;) AS out_put;	--&gt; 殷素</span><br></pre></td></tr></table></figure>
+
+<h3 id="REPLACE-s-s1-s2"><a href="#REPLACE-s-s1-s2" class="headerlink" title="REPLACE(s,s1,s2)"></a>REPLACE(s,s1,s2)</h3><p>用字符串 s2 替代字符串 s 中的字符串 s1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT REPLACE(&#39;张无忌爱上了周芷若&#39;,&#39;周芷若&#39;,&#39;赵敏&#39;) AS out_put;	--&gt;张无忌爱上了赵敏</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h2><h3 id="ROUND-x"><a href="#ROUND-x" class="headerlink" title="ROUND(x)"></a>ROUND(x)</h3><p>ROUND(x,d)：保留d位小数</p>
+<p>四舍五入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ROUND(-1.55);	--&gt; -2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ROUND(1.567,2);	--&gt; 1.57</span><br></pre></td></tr></table></figure>
+
+<h3 id="CEIL-x"><a href="#CEIL-x" class="headerlink" title="CEIL(x)"></a>CEIL(x)</h3><p>向上取整</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT CEIL(-1.02);	--&gt; -1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT CEIL(1.02);	--&gt; 2</span><br></pre></td></tr></table></figure>
+
+<h3 id="FLOOR-x"><a href="#FLOOR-x" class="headerlink" title="FLOOR(x)"></a>FLOOR(x)</h3><p>向下取整</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT FLOOR(-1.58);	--&gt; -2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT FLOOR(1.58);	--&gt; 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="TRUNCATE-x-y"><a href="#TRUNCATE-x-y" class="headerlink" title="TRUNCATE(x,y)"></a>TRUNCATE(x,y)</h3><p>返回数值 x 保留到小数点后 y 位的值（与 ROUND 最大的区别是<code>不会</code>进行四舍五入）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT TRUNCATE(1.567,2);    --&gt; 1.56</span><br></pre></td></tr></table></figure>
+
+<h3 id="MOD-x-y"><a href="#MOD-x-y" class="headerlink" title="MOD(x,y)"></a>MOD(x,y)</h3><p>返回 x 除以 y 以后的余数　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT MOD(10,-3);	--&gt; 1</span><br></pre></td></tr></table></figure>
+
+<p>等价于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 10%-3;	--&gt; 1</span><br></pre></td></tr></table></figure>
+
+<p>余数的符号取决于被除数的符号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT MOD(-10,3);	--&gt; -1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT MOD(-10,-3);	--&gt; -1</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h2><h3 id="NOW"><a href="#NOW" class="headerlink" title="NOW()"></a>NOW()</h3><p>返回当前系统时间(注：日期+时间)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT NOW();	--&gt; 2019-10-05 09:56:57</span><br></pre></td></tr></table></figure>
+
+<h3 id="CURDATE"><a href="#CURDATE" class="headerlink" title="CURDATE()"></a>CURDATE()</h3><p>返回当前系统日期，不包含时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT CURDATE();	--&gt; 2019-10-05</span><br></pre></td></tr></table></figure>
+
+<h3 id="CURTIME"><a href="#CURTIME" class="headerlink" title="CURTIME()"></a>CURTIME()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT CURTIME();	--&gt;09:56:57</span><br></pre></td></tr></table></figure>
+
+<h3 id="YEAR-d"><a href="#YEAR-d" class="headerlink" title="YEAR(d)"></a>YEAR(d)</h3><p>返回年份</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT YEAR(NOW());	--&gt;2019</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT YEAR(&#39;1998-1-1&#39;);	--&gt;1998</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT  YEAR(hiredate) 入职时间 FROM employees;</span><br></pre></td></tr></table></figure>
+
+<h3 id="MONTH-d"><a href="#MONTH-d" class="headerlink" title="MONTH(d)"></a>MONTH(d)</h3><p>返回日期d中的月份值，1 到 12</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT MONTH(NOW());	--&gt; 10</span><br></pre></td></tr></table></figure>
+
+<h3 id="MONTHNAME-d"><a href="#MONTHNAME-d" class="headerlink" title="MONTHNAME(d)"></a>MONTHNAME(d)</h3><p> 返回日期当中的月份名称，如 November</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT MONTHNAME(NOW());	--&gt; October</span><br></pre></td></tr></table></figure>
+
+<h3 id="STR-TO-DATE-s-f"><a href="#STR-TO-DATE-s-f" class="headerlink" title="STR_TO_DATE(s, f)"></a>STR_TO_DATE(s, f)</h3><p>将字符通过指定的格式转换成日期</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT STR_TO_DATE(&#39;1998-3-2&#39;,&#39;%Y-%c-%d&#39;) AS out_put;	--&gt; 1998-03-02</span><br></pre></td></tr></table></figure>
+
+<p>查询入职日期为1992-4-3的员工信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM employees WHERE hiredate &#x3D; &#39;1992-4-3&#39;;</span><br><span class="line"></span><br><span class="line"># 或者</span><br><span class="line"></span><br><span class="line">SELECT * FROM employees WHERE hiredate &#x3D; STR_TO_DATE(&#39;4-3 1992&#39;,&#39;%c-%d %Y&#39;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="DATE-FORMAT-d-f"><a href="#DATE-FORMAT-d-f" class="headerlink" title="DATE_FORMAT(d,f)"></a>DATE_FORMAT(d,f)</h3><p>将日期通过指定的格式转换成字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DATE_FORMAT(NOW(),&#39;%Y年%m月%d日&#39;) AS out_put;	--&gt; 2019年10月05日</span><br></pre></td></tr></table></figure>
+
+<p>查询有奖金的员工名和入职日期(xx月/xx日 xx年)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT last_name,DATE_FORMAT(hiredate,&#39;%m月&#x2F;%d日 %y年&#39;) 入职日期</span><br><span class="line">FROM employees</span><br><span class="line">WHERE commission_pct IS NOT NULL;</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h2><h3 id="VERSION"><a href="#VERSION" class="headerlink" title="VERSION()"></a>VERSION()</h3><p>返回数据库的版本号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT VERSION();</span><br></pre></td></tr></table></figure>
+
+<h3 id="DATABASE"><a href="#DATABASE" class="headerlink" title="DATABASE()"></a>DATABASE()</h3><p> 返回当前数据库名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DATABASE();</span><br></pre></td></tr></table></figure>
+
+<h3 id="USER"><a href="#USER" class="headerlink" title="USER()"></a>USER()</h3><p>返回当前用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT USER();</span><br></pre></td></tr></table></figure>
+
+<h2 id="流程控制函数"><a href="#流程控制函数" class="headerlink" title="流程控制函数"></a>流程控制函数</h2><h3 id="IF-expr-v1-v2"><a href="#IF-expr-v1-v2" class="headerlink" title="IF(expr,v1,v2)"></a>IF(expr,v1,v2)</h3><p>如果表达式 expr 成立，返回结果 v1；否则，返回结果 v2。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT IF(1 &gt; 0,&#39;正确&#39;,&#39;错误&#39;);	--&gt; 正确</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	last_name,</span><br><span class="line">	commission_pct,</span><br><span class="line">IF</span><br><span class="line">	( commission_pct IS NULL, &#39;没奖金，呵呵&#39;, &#39;有奖金，嘻嘻&#39; ) 备注 </span><br><span class="line">FROM</span><br><span class="line">	employees;</span><br></pre></td></tr></table></figure>
+
+<h3 id="CASE"><a href="#CASE" class="headerlink" title="CASE"></a>CASE</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CASE expression</span><br><span class="line">    WHEN condition1 THEN result1</span><br><span class="line">    WHEN condition2 THEN result2</span><br><span class="line">   ...</span><br><span class="line">    WHEN conditionN THEN resultN</span><br><span class="line">    ELSE result</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+
+<p>CASE 表示函数开始，END 表示函数结束。如果 condition1 成立，则返回 result1, 如果 condition2 成立，则返回 result2，当全部不成立则返回 result，而当有一个成立之后，后面的就不执行了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">case 要判断的字段或表达式</span><br><span class="line">when 常量1 then 要显示的值1或语句1;</span><br><span class="line">when 常量2 then 要显示的值2或语句2;</span><br><span class="line">...</span><br><span class="line">else 要显示的值n或语句n;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT CASE </span><br><span class="line">　　WHEN 1 &gt; 0</span><br><span class="line">　　THEN &#39;1 &gt; 0&#39;</span><br><span class="line">　　WHEN 2 &gt; 0</span><br><span class="line">　　THEN &#39;2 &gt; 0&#39;</span><br><span class="line">　　ELSE &#39;3 &gt; 0&#39;</span><br><span class="line">　　END</span><br><span class="line">　　</span><br><span class="line">--&gt; 1 &gt; 0</span><br></pre></td></tr></table></figure>
+
+<p>查询员工的工资，要求</p>
+<ol>
+<li>部门号=30，显示的工资为1.1倍</li>
+<li>部门号=40，显示的工资为1.2倍</li>
+<li>部门号=50，显示的工资为1.3倍</li>
+<li>其他部门，显示的工资为原工资</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT salary 原始工资,department_id,</span><br><span class="line">CASE department_id</span><br><span class="line">WHEN 30 THEN salary*1.1</span><br><span class="line">WHEN 40 THEN salary*1.2</span><br><span class="line">WHEN 50 THEN salary*1.3</span><br><span class="line">ELSE salary</span><br><span class="line">END AS 新工资</span><br><span class="line">FROM employees;</span><br></pre></td></tr></table></figure>
+
+<p>查询员工的工资的情况</p>
+<ol>
+<li>如果工资&gt;20000,显示A级别</li>
+<li>如果工资&gt;15000,显示B级别</li>
+<li>如果工资&gt;10000，显示C级别</li>
+<li>否则，显示D级别</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT salary,</span><br><span class="line">CASE </span><br><span class="line">WHEN salary&gt;20000 THEN &#39;A&#39;</span><br><span class="line">WHEN salary&gt;15000 THEN &#39;B&#39;</span><br><span class="line">WHEN salary&gt;10000 THEN &#39;C&#39;</span><br><span class="line">ELSE &#39;D&#39;</span><br><span class="line">END AS 工资级别</span><br><span class="line">FROM employees;</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

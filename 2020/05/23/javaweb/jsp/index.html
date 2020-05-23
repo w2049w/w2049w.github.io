@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        javaweb/jsp - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Jsp-JavaServer-Pages"><span class="toc-text">Jsp(JavaServer Pages)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp脚本"><span class="toc-text">jsp脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp注释"><span class="toc-text">jsp注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp运行原理"><span class="toc-text">jsp运行原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp指令"><span class="toc-text">jsp指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#page指令"><span class="toc-text">page指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#include指令"><span class="toc-text">include指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#taglib指令"><span class="toc-text">taglib指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSP-动作元素（标签）"><span class="toc-text">JSP 动作元素（标签）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jsp-include"><span class="toc-text">jsp:include</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsp-forward"><span class="toc-text">jsp:forward</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsp-useBean"><span class="toc-text">jsp:useBean</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsp-setProperty"><span class="toc-text">jsp:setProperty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsp-getProperty"><span class="toc-text">jsp:getProperty</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp内置-隐式对象（9个）"><span class="toc-text">jsp内置&#x2F;隐式对象（9个）</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        javaweb/jsp
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 00:28:43</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Jsp-JavaServer-Pages"><a href="#Jsp-JavaServer-Pages" class="headerlink" title="Jsp(JavaServer Pages)"></a>Jsp(JavaServer Pages)</h1><h2 id="jsp脚本"><a href="#jsp脚本" class="headerlink" title="jsp脚本"></a>jsp脚本</h2><p><code>&lt;%!java代码%&gt;</code>：会被翻译成servlet的成员的内容</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下面的代码在一个标签中声明了一个变量和一个方法：</span></span><br><span class="line">&lt;%!</span><br><span class="line">    String color[] = &#123;<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"blue"</span>&#125;;</span><br><span class="line">    <span class="function">String <span class="title">getColor</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> color[i];</span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;%java代码%&gt;</code>：内部的java代码翻译到service方法的内部</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%! <span class="keyword">int</span> count = <span class="number">0</span>; %&gt;</span><br><span class="line">&lt;% count++; %&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;%=java变量或表达式&gt;</code>：会被翻译成service方法内部out.print()</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= count%&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="jsp注释"><a href="#jsp注释" class="headerlink" title="jsp注释"></a>jsp注释</h2><ol>
+<li>html注释：<code>&lt;!--注释内容--&gt;</code> —可见范围 jsp源码、翻译后的servlet、页面                                                显示html源码</li>
+<li>java注释：<code>//单行注释  /*多行注释*/</code> —可见范围 jsp源码 翻译后的servlet</li>
+<li>jsp注释：<code>&lt;%--注释内容--%&gt;</code> — 可见范围 jsp源码可见</li>
+</ol>
+<h2 id="jsp运行原理"><a href="#jsp运行原理" class="headerlink" title="jsp运行原理"></a>jsp运行原理</h2><p>jsp本质就是一个servlet</p>
+<p>当第一次访问jsp页面时，会向一个servlet容器（tomcat等）发出请求，servlet容器先要把 jsp页面转化为servlet代码（.java），再编译成.class 文件 再进行调用。当再次访问jsp页面时 跳过翻译和编译的过程 直接调用 流程：</p>
+<p>第一次访问流程：</p>
+<ol>
+<li><p>客户端发出请求hello.jsp</p>
+</li>
+<li><p>web容器将jsp转化为servlet代码（hello_jsp.java）</p>
+<pre><code>3、web容器将转化为servlet代码编译（hello_jsp.class）
+
+4、web容器加载编译后的代码并执行
+
+5、将执行结果响应给客户端</code></pre></li>
+</ol>
+<h2 id="jsp指令"><a href="#jsp指令" class="headerlink" title="jsp指令"></a>jsp指令</h2><h3 id="page指令"><a href="#page指令" class="headerlink" title="page指令"></a>page指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page 属性名1&#x3D; &quot;属性值1&quot; 属性名2&#x3D; &quot;属性值2&quot; ...%&gt;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th><strong>属性</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>buffer</td>
+<td>指定out对象使用缓冲区的大小</td>
+</tr>
+<tr>
+<td>autoFlush</td>
+<td>控制out对象的 缓存区</td>
+</tr>
+<tr>
+<td>contentType</td>
+<td>指定当前JSP页面的MIME类型和字符编码</td>
+</tr>
+<tr>
+<td>errorPage</td>
+<td>指定当JSP页面发生异常时需要转向的错误处理页面</td>
+</tr>
+<tr>
+<td>isErrorPage</td>
+<td>指定当前页面是否可以作为另一个JSP页面的错误处理页面</td>
+</tr>
+<tr>
+<td>extends</td>
+<td>指定servlet从哪一个类继承</td>
+</tr>
+<tr>
+<td>import</td>
+<td>导入要使用的Java类</td>
+</tr>
+<tr>
+<td>info</td>
+<td>定义JSP页面的描述信息</td>
+</tr>
+<tr>
+<td>isThreadSafe</td>
+<td>指定对JSP页面的访问是否为线程安全</td>
+</tr>
+<tr>
+<td>language</td>
+<td>定义JSP页面所用的脚本语言，默认是Java</td>
+</tr>
+<tr>
+<td>session</td>
+<td>指定JSP页面是否使用session</td>
+</tr>
+<tr>
+<td>isELIgnored</td>
+<td>指定是否执行EL表达式</td>
+</tr>
+<tr>
+<td>isScriptingEnabled</td>
+<td>确定脚本元素能否被使用</td>
+</tr>
+</tbody></table>
+<h3 id="include指令"><a href="#include指令" class="headerlink" title="include指令"></a>include指令</h3><p>页面包含（静态包含）指令，可以将一个jsp页面包含到另一个jsp页面中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ include file&#x3D;&quot;被包含文件的 相对 url 地址&quot;%&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="taglib指令"><a href="#taglib指令" class="headerlink" title="taglib指令"></a>taglib指令</h3><p>在jsp页面中引入标签库（jstl标签库、struts2标签库）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib uri&#x3D;&quot;标签库地址&quot; prefix&#x3D;&quot;前缀&quot;%&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="JSP-动作元素（标签）"><a href="#JSP-动作元素（标签）" class="headerlink" title="JSP 动作元素（标签）"></a>JSP 动作元素（标签）</h2><h3 id="jsp-include"><a href="#jsp-include" class="headerlink" title="jsp:include"></a>jsp:include</h3><p>页面包含（动态包含）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:include page&#x3D;&quot;被包含的页面&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&lt;jsp:useBean&gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:forward page&#x3D;&quot;要转发的资源&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="jsp-forward"><a href="#jsp-forward" class="headerlink" title="jsp:forward"></a>jsp:forward</h3><p>把请求转到另外的页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:forward page&#x3D;&quot;相对 URL 地址&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="jsp-useBean"><a href="#jsp-useBean" class="headerlink" title="jsp:useBean"></a>jsp:useBean</h3><p>加载一个将在JSP页面中使用的JavaBean。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:useBean id&#x3D;&quot;name&quot; class&#x3D;&quot;package.class&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="jsp-setProperty"><a href="#jsp-setProperty" class="headerlink" title="jsp:setProperty"></a>jsp:setProperty</h3><p>用来设置已经实例化的Bean对象的属性，有两种用法。</p>
+<ol>
+<li>你可以在jsp:useBean元素的外面（后面）使用</li>
+<li>把jsp:setProperty放入jsp:useBean元素的内部</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:useBean id&#x3D;&quot;myName&quot; [type&#x3D;&quot;指定将引用该对象变量的类型&quot;] &#x2F;&gt;</span><br><span class="line">...</span><br><span class="line">&lt;jsp:setProperty name&#x3D;&quot;myName&quot; property&#x3D;&quot;属性名&quot; [value&#x3D;&quot;指定值&quot; param&#x3D;&quot;请求参数作为Bean属性的值&quot;] &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;或者</span><br><span class="line"></span><br><span class="line">&lt;jsp:useBean id&#x3D;&quot;myName&quot; ... &gt;</span><br><span class="line">...</span><br><span class="line">   &lt;jsp:setProperty name&#x3D;&quot;myName&quot; property&#x3D;&quot;属性名&quot; [value&#x3D;&quot;指定值&quot; param&#x3D;&quot;请求参数作为Bean属性的值&quot;] &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;jsp:useBean&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="jsp-getProperty"><a href="#jsp-getProperty" class="headerlink" title="jsp:getProperty"></a>jsp:getProperty</h3><p>获取指定Bean属性的值，转换成字符串，然后输出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:useBean id&#x3D;&quot;myName&quot; ... &#x2F;&gt;</span><br><span class="line">...</span><br><span class="line">&lt;jsp:getProperty name&#x3D;&quot;myName&quot; property&#x3D;&quot;属性名&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="jsp内置-隐式对象（9个）"><a href="#jsp内置-隐式对象（9个）" class="headerlink" title="jsp内置/隐式对象（9个）"></a>jsp内置/隐式对象（9个）</h2><table>
+<thead>
+<tr>
+<th><strong>名称</strong></th>
+<th><strong>类型</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>out</td>
+<td>javax.servlet.jsp.JspWriter</td>
+<td>用于页面输出</td>
+</tr>
+<tr>
+<td>request</td>
+<td>javax.servlet.http.HttpServletRequest</td>
+<td>得到用户请求信息，</td>
+</tr>
+<tr>
+<td>response</td>
+<td>javax.servlet.http.HttpServletResponse</td>
+<td>服务器向客户端的回应信息</td>
+</tr>
+<tr>
+<td>config</td>
+<td>javax.servlet.ServletConfig</td>
+<td>服务器配置，可以取得初始化参数</td>
+</tr>
+<tr>
+<td>session</td>
+<td>javax.servlet.http.HttpSession</td>
+<td>用来保存用户的信息</td>
+</tr>
+<tr>
+<td>application</td>
+<td>javax.servlet.ServletContext</td>
+<td>所有用户的共享信息</td>
+</tr>
+<tr>
+<td>page</td>
+<td>java.lang.Object</td>
+<td>指当前页面转换后的Servlet类的实例</td>
+</tr>
+<tr>
+<td>pageContext</td>
+<td>javax.servlet.jsp.PageContext</td>
+<td>JSP的页面容器</td>
+</tr>
+<tr>
+<td>exception</td>
+<td>java.lang.Throwable</td>
+<td>表示JSP页面所发生的异常，在错误页中才起作用</td>
+</tr>
+</tbody></table>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

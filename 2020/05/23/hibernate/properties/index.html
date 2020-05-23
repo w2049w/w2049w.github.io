@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        hibernate/properties - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hibernate配置文件"><span class="toc-text">Hibernate配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主配置文件"><span class="toc-text">主配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实体类映射文件"><span class="toc-text">实体类映射文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#主键"><span class="toc-text">主键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-text">API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简单的增删改查"><span class="toc-text">简单的增删改查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-text">数据类型</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        hibernate/properties
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 00:28:43</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Hibernate配置文件"><a href="#Hibernate配置文件" class="headerlink" title="Hibernate配置文件"></a>Hibernate配置文件</h1><h2 id="主配置文件"><a href="#主配置文件" class="headerlink" title="主配置文件"></a>主配置文件</h2><p><code>hibernate.cfg.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">hibernate-configuration</span> <span class="meta-keyword">PUBLIC</span></span></span><br><span class="line"><span class="meta">	<span class="meta-string">"-//Hibernate/Hibernate Configuration DTD 3.0//EN"</span></span></span><br><span class="line"><span class="meta">	<span class="meta-string">"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">session-factory</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">			hibernate下载文件\project\etc可查看</span></span><br><span class="line"><span class="comment">			</span></span><br><span class="line"><span class="comment">			#hibernate.dialect org.hibernate.dialect.MySQLDialect</span></span><br><span class="line"><span class="comment">			#hibernate.dialect org.hibernate.dialect.MySQLInnoDBDialect</span></span><br><span class="line"><span class="comment">			#hibernate.dialect org.hibernate.dialect.MySQLMyISAMDialect</span></span><br><span class="line"><span class="comment">			#hibernate.connection.driver_class com.mysql.jdbc.Driver</span></span><br><span class="line"><span class="comment">			#hibernate.connection.url jdbc:mysql:///test</span></span><br><span class="line"><span class="comment">			#hibernate.connection.username gavin</span></span><br><span class="line"><span class="comment">			#hibernate.connection.password </span></span><br><span class="line"><span class="comment">		--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.driver_class"</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.url"</span>&gt;</span>jdbc:mysql:///hibernate<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.username"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.password"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">&lt;!-- 数据库方言</span></span><br><span class="line"><span class="comment">			不同的数据库中,sql语法略有区别. 指定方言可以让hibernate框架在生成sql语句时.针对数据库的方言生成.</span></span><br><span class="line"><span class="comment">			sql99标准: DDL 定义语言  库表的增删改查</span></span><br><span class="line"><span class="comment">					   DCL 控制语言  事务 权限</span></span><br><span class="line"><span class="comment">					   DML 操纵语言  增删改查</span></span><br><span class="line"><span class="comment">			注意: MYSQL在选择方言时,请选择最短的方言.</span></span><br><span class="line"><span class="comment">		 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.dialect"</span>&gt;</span>org.hibernate.dialect.MySQLDialect<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">			#hibernate.show_sql true 把自动生成的sql语句打印在控制台</span></span><br><span class="line"><span class="comment">			#hibernate.format_sql true 格式化sql语句不然都在一行 </span></span><br><span class="line"><span class="comment">		--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.show_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.format_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">			## auto schema export  自动导出表结构. 自动建表</span></span><br><span class="line"><span class="comment">			#hibernate.hbm2ddl.auto create		自动建表.每次框架运行都会创建新的表.以前表将会被覆盖,表数据会丢失.(开发环境中测试使用)</span></span><br><span class="line"><span class="comment">			#hibernate.hbm2ddl.auto create-drop 自动建表.每次框架运行结束都会将所有表删除.(开发环境中测试使用)</span></span><br><span class="line"><span class="comment">			#hibernate.hbm2ddl.auto update(推荐使用) 自动生成表.如果已经存在不会再生成.如果表有变动.自动更新表(不会删除任何数据).表中没有的字段会自动添加</span></span><br><span class="line"><span class="comment">			#hibernate.hbm2ddl.auto validate	校验.不自动生成表.每次启动会校验数据库中表是否正确.校验失败.</span></span><br><span class="line"><span class="comment">		 --&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.hbm2ddl.auto"</span>&gt;</span>update<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">		specify a JDBC isolation level 		设置事物级别</span></span><br><span class="line"><span class="comment">		hibernate.connection.isolation 4	1，2，4，8   eg:0000</span></span><br><span class="line"><span class="comment">		 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.isolation"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">&lt;!--配置session与threadLocal绑定 		 注：还有其他方式--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.current_session_context_class"</span>&gt;</span>thread<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		 </span><br><span class="line">		 <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">		 	引入orm元数据</span></span><br><span class="line"><span class="comment">			路径书写: 填写src下的路径 相对于src</span></span><br><span class="line"><span class="comment">		 --&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">mapping</span> <span class="attr">resource</span>=<span class="string">"club/zzrfdsnsyl/domain/Customer.hbm.xml"</span>/&gt;</span></span><br><span class="line">		</span><br><span class="line">	<span class="tag">&lt;/<span class="name">session-factory</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="实体类映射文件"><a href="#实体类映射文件" class="headerlink" title="实体类映射文件"></a>实体类映射文件</h2><p>实体类</p>
+<ul>
+<li>提供一个<strong>无参数</strong> public访问控制符的构造器</li>
+<li>提供一个<strong>标识属性</strong>，映射数据表主键字段，提供id</li>
+<li>所有属性提供public访问控制符的 set  get 方法(javaBean)</li>
+<li>标识属性应尽量使用<strong>基本数据类型的包装类型</strong></li>
+<li><strong>不要用final修饰实体</strong> （将无法生成代理对象进行优化）</li>
+</ul>
+<h3 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h3><ul>
+<li>Java按<strong>地址区</strong>分同一个类的不同对象.l</li>
+<li>关系数据库用<strong>主键区分同一条</strong>记录l</li>
+<li>Hibernate使用OID来建立内存中的对象和数据库中记录的对应关系结论: <strong>对象的OID和数据库的表的主键对应。</strong></li>
+<li>为保证OID的唯一性，应该让<strong>Hibernate来为OID赋值</strong></li>
+</ul>
+<ul>
+<li>主键需要具备: <strong>不为空/不能重复/不能改变</strong>        </li>
+<li>自然主键:    在业务中,某个属性符合主键的三个要求.那么该属性可以作为主键列.【例如：<strong>登录名可以是自然主键</strong>】</li>
+<li>代理主键:     在业务中,不存符合以上3个条件的属性,那么就增加一个没有意义的列.作为主键.</li>
+</ul>
+<ul>
+<li>基本数据类型和包装类型对应hibernate的映射类型相同l</li>
+<li>基本类型无法表达null、数字类型的默认值为0。</li>
+<li>包装类默认值是null。当对于默认值有业务意义的时候需要使用包装类。</li>
+</ul>
+<p><code>xxx.hbm.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">hibernate-mapping</span> <span class="meta-keyword">PUBLIC</span> </span></span><br><span class="line"><span class="meta">    <span class="meta-string">"-//Hibernate/Hibernate Mapping DTD 3.0//EN"</span></span></span><br><span class="line"><span class="meta">    <span class="meta-string">"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- package代表class中配置的类所在的包名，可以不写但class中就要写全路径 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hibernate-mapping</span> <span class="attr">package</span>=<span class="string">"club.zzrfdsnsyl.domain"</span>&gt;</span></span><br><span class="line">    	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    		class元素配置实体与表的对应关系</span></span><br><span class="line"><span class="comment">    		name代表实体类名 </span></span><br><span class="line"><span class="comment">    		table代表数据库中的表名</span></span><br><span class="line"><span class="comment">    		catalog代表数据库名称(可选)</span></span><br><span class="line"><span class="comment">    	 --&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"Customer"</span> <span class="attr">table</span>=<span class="string">"cst_customer"</span>&gt;</span></span><br><span class="line">    		<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    		id配置主键映射关系(表中的主键)</span></span><br><span class="line"><span class="comment">    		name代表实体中的属性</span></span><br><span class="line"><span class="comment">    		column代表表中的列名</span></span><br><span class="line"><span class="comment">    		column(默认实体属性名) type(内部判断,java/hibernate/sql 如:java.lang.String/string/varchar) length(所用数据库最大长度) 均可省略 </span></span><br><span class="line"><span class="comment">    		--&gt;</span></span><br><span class="line">    		<span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"cust_id"</span> <span class="attr">column</span>=<span class="string">"cust_id"</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">					主键生成策略</span></span><br><span class="line"><span class="comment">	    			identity：主键自增，由数据库维护 不需手动设置主键</span></span><br><span class="line"><span class="comment">	    			sequence：Oracle的主键生成策略</span></span><br><span class="line"><span class="comment">	    			increment：主键自增 由hibernate维护 插入时先去查询最大值再+1</span></span><br><span class="line"><span class="comment">	    			hilo：高低位算法，主键自增 有hibernate维护 开发时不使用</span></span><br><span class="line"><span class="comment">	    			native：hilo+sequence+identity 自动三选一</span></span><br><span class="line"><span class="comment">	    			uuid：产生长度为32的唯一字符串作为主键 主键类型必须是String</span></span><br><span class="line"><span class="comment">	    			assigend：自然主键生成策略 就是自己设置</span></span><br><span class="line"><span class="comment">    			 --&gt;</span></span><br><span class="line">    			<span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"native"</span>&gt;</span><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></span><br><span class="line">    		<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            </span><br><span class="line">    		<span class="comment">&lt;!-- 除id(主键)外普通属性 not-null：该列不能为空 --&gt;</span></span><br><span class="line">    		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"cust_name"</span> <span class="attr">column</span>=<span class="string">"cust_name"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span> <span class="attr">length</span>=<span class="string">"32"</span> <span class="attr">not-null</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            </span><br><span class="line">    		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"cust_source"</span> <span class="attr">column</span>=<span class="string">"cust_source"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span> <span class="attr">length</span>=<span class="string">"32"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            </span><br><span class="line">    		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"cust_industry"</span> <span class="attr">column</span>=<span class="string">"cust_industry"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span> <span class="attr">length</span>=<span class="string">"32"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            </span><br><span class="line">    		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"cust_level"</span> <span class="attr">column</span>=<span class="string">"cust_level"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span> <span class="attr">length</span>=<span class="string">"32"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            </span><br><span class="line">    		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"cust_linkman"</span> <span class="attr">column</span>=<span class="string">"cust_linkman"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span> <span class="attr">length</span>=<span class="string">"64"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            </span><br><span class="line">    		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"cust_phone"</span> <span class="attr">column</span>=<span class="string">"cust_phone"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span> <span class="attr">length</span>=<span class="string">"64"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            </span><br><span class="line">    		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"cust_mobile"</span> <span class="attr">column</span>=<span class="string">"cust_mobile"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span> <span class="attr">length</span>=<span class="string">"16"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            </span><br><span class="line">    	<span class="tag">&lt;/<span class="name">class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>class标签属性：</strong></p>
+<p>dynamic-insert=”true/false” 是否动态生成插入语句,<strong>如果属性字段为空，就不会有该字段的插入语句</strong></p>
+<p>dynamic-update=”true/false” 同上</p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> club.zzrfdsnsyl.hibernateAPI;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.hibernate.Session;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.SessionFactory;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.Transaction;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.cfg.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> club.zzrfdsnsyl.domain.Customer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A_api</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 1.创建加载配置文件的对象</span></span><br><span class="line">		Configuration config = <span class="keyword">new</span> Configuration();</span><br><span class="line">        </span><br><span class="line">		<span class="comment">// 2.加载配置文件 默认找src下的hibernate.cfg.xml</span></span><br><span class="line">		config.configure();</span><br><span class="line"><span class="comment">//		config.addResource("");				</span></span><br><span class="line"><span class="comment">//		config.addClass(persistentClass)</span></span><br><span class="line">        </span><br><span class="line">		<span class="comment">//3.根据配置文件创建SessionFactory对象</span></span><br><span class="line">		SessionFactory sessionFactory=config.buildSessionFactory();</span><br><span class="line">        </span><br><span class="line">		<span class="comment">//4.获取一个新的session对象（连接数据库对象）</span></span><br><span class="line">		Session session = sessionFactory.openSession();</span><br><span class="line">		<span class="comment">//Session session= sessionFactory.getCurrentSession(); 获取当前线程绑定的session,需要在配置文件中配置</span></span><br><span class="line">        </span><br><span class="line">		<span class="comment">//5.获取事物对象</span></span><br><span class="line">		Transaction transaction = session.getTransaction();</span><br><span class="line">        </span><br><span class="line">		<span class="comment">//6.开启事物</span></span><br><span class="line">		transaction.begin();</span><br><span class="line">        </span><br><span class="line">		<span class="comment">//7.创建实体对象</span></span><br><span class="line">		Customer customer=<span class="keyword">new</span> Customer();</span><br><span class="line"><span class="comment">//		customer.setCust_id(1000L); ---目前好像没有 应该是配置文件中的那个没讲的标签问题</span></span><br><span class="line">		customer.setCust_industry(<span class="string">"电脑厂商"</span>);</span><br><span class="line">		customer.setCust_level(<span class="string">"VIP"</span>);</span><br><span class="line">		customer.setCust_linkman(<span class="string">"赵麻子"</span>);</span><br><span class="line">		customer.setCust_mobile(<span class="string">"17533214759"</span>);</span><br><span class="line">		customer.setCust_name(<span class="string">"华硕"</span>);</span><br><span class="line">		customer.setCust_phone(<span class="string">"7845-84564847"</span>);</span><br><span class="line">		customer.setCust_source(<span class="string">"互联网"</span>);</span><br><span class="line">		<span class="comment">//8.保存--执行sql</span></span><br><span class="line">		session.save(customer);</span><br><span class="line">        </span><br><span class="line">		<span class="comment">//9.[回滚事物]</span></span><br><span class="line">		<span class="comment">//transaction.rollback();</span></span><br><span class="line">        </span><br><span class="line">		<span class="comment">//10.提交事物</span></span><br><span class="line">		transaction.commit(); </span><br><span class="line">        </span><br><span class="line">		<span class="comment">//11.关闭session连接</span></span><br><span class="line">		session.close();</span><br><span class="line">        </span><br><span class="line">		<span class="comment">//12.关闭工厂</span></span><br><span class="line">		sessionFactory.close();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="简单的增删改查"><a href="#简单的增删改查" class="headerlink" title="简单的增删改查"></a>简单的增删改查</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> club.zzrfdsnsyl.hibernateAPI;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.hibernate.Session;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.Transaction;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> club.zzrfdsnsyl.domain.Customer;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * hibernate的增删改查</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> SYL</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B_api</span> </span>&#123;</span><br><span class="line">	Session session = HmUtil.openSession();</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Customer customer=<span class="keyword">new</span> Customer();</span><br><span class="line">		customer.setCust_industry(<span class="string">"电脑厂商"</span>);</span><br><span class="line">		customer.setCust_level(<span class="string">"VIP"</span>);</span><br><span class="line">		customer.setCust_linkman(<span class="string">"lucy"</span>);</span><br><span class="line">		customer.setCust_mobile(<span class="string">"17598754589"</span>);</span><br><span class="line">		customer.setCust_name(<span class="string">"tonny"</span>);</span><br><span class="line">		customer.setCust_phone(<span class="string">"7845-84564847"</span>);</span><br><span class="line">		customer.setCust_source(<span class="string">"互联网"</span>);</span><br><span class="line">		session.save(customer);</span><br><span class="line">		session.close();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Customer customer = session.get(Customer<span class="class">.<span class="keyword">class</span>, 1<span class="title">L</span>)</span>;</span><br><span class="line">		System.out.println(customer);</span><br><span class="line">		session.close();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 必须开启事物</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//先获取要修改的对象</span></span><br><span class="line"><span class="comment">//		Transaction t = session.beginTransaction();</span></span><br><span class="line">		Customer customer = session.get(Customer<span class="class">.<span class="keyword">class</span>, 10<span class="title">L</span>)</span>;</span><br><span class="line">		customer.setCust_name(<span class="string">"李雷"</span>);</span><br><span class="line">		customer.setCust_linkman(<span class="string">"韩梅梅"</span>);</span><br><span class="line">		session.update(customer);</span><br><span class="line"><span class="comment">//		t.commit();</span></span><br><span class="line">		session.close();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 必须开启事物</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//先获取要删除的对象</span></span><br><span class="line">		Transaction t = session.beginTransaction();</span><br><span class="line">		Customer customer = session.get(Customer<span class="class">.<span class="keyword">class</span>, 3<span class="title">L</span>)</span>;</span><br><span class="line">		session.delete(customer);</span><br><span class="line">		t.commit();</span><br><span class="line">		session.close();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><table>
+<thead>
+<tr>
+<th>Java数据类型</th>
+<th>Hibernate数据类型</th>
+<th>标准SQL数据类型 (PS:对于不同的DB可能有所差异)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte、java.lang.Byte</td>
+<td>byte</td>
+<td>TINYINT</td>
+</tr>
+<tr>
+<td>short、java.lang.Short</td>
+<td>short</td>
+<td>SMALLINT</td>
+</tr>
+<tr>
+<td>int、java.lang.Integer</td>
+<td>integer</td>
+<td>INGEGER</td>
+</tr>
+<tr>
+<td>long、java.lang.Long</td>
+<td>long</td>
+<td>BIGINT</td>
+</tr>
+<tr>
+<td>float、java.lang.Float</td>
+<td>float</td>
+<td>FLOAT</td>
+</tr>
+<tr>
+<td>double、java.lang.Double</td>
+<td>double</td>
+<td>DOUBLE</td>
+</tr>
+<tr>
+<td>java.math.BigDecimal</td>
+<td>big_decimal</td>
+<td>NUMERIC</td>
+</tr>
+<tr>
+<td>char、java.lang.Character</td>
+<td>character</td>
+<td>CHAR(1)</td>
+</tr>
+<tr>
+<td>boolean、java.lang.Boolean</td>
+<td>boolean</td>
+<td>BIT</td>
+</tr>
+<tr>
+<td>java.lang.String</td>
+<td>string</td>
+<td>VARCHAR</td>
+</tr>
+<tr>
+<td>boolean、java.lang.Boolean</td>
+<td>yes_no</td>
+<td>CHAR(1)(‘Y’或’N’)</td>
+</tr>
+<tr>
+<td>boolean、java.lang.Boolean</td>
+<td>true_false</td>
+<td>CHAR(1)(‘Y’或’N’)</td>
+</tr>
+<tr>
+<td>java.util.Date、java.sql.Date</td>
+<td>date</td>
+<td>DATE</td>
+</tr>
+<tr>
+<td>java.util.Date、java.sql.Time</td>
+<td>time</td>
+<td>TIME</td>
+</tr>
+<tr>
+<td>java.util.Date、java.sql.Timestamp</td>
+<td>timestamp</td>
+<td>TIMESTAMP</td>
+</tr>
+<tr>
+<td>java.util.Calendar</td>
+<td>calendar</td>
+<td>TIMESTAMP</td>
+</tr>
+<tr>
+<td>java.util.Calendar</td>
+<td>calendar_date</td>
+<td>DATE</td>
+</tr>
+<tr>
+<td>byte[]</td>
+<td>binary</td>
+<td>VARBINARY、BLOB</td>
+</tr>
+<tr>
+<td>java.lang.String</td>
+<td>text</td>
+<td>CLOB</td>
+</tr>
+<tr>
+<td>java.io.Serializable</td>
+<td>serializable</td>
+<td>VARBINARY、BLOB</td>
+</tr>
+<tr>
+<td>java.sql.Clob</td>
+<td>clob</td>
+<td>CLOB</td>
+</tr>
+<tr>
+<td>java.sql.Blob</td>
+<td>blob</td>
+<td>BLOB</td>
+</tr>
+<tr>
+<td>java.lang.Class</td>
+<td>class</td>
+<td>VARCHAR</td>
+</tr>
+<tr>
+<td>java.util.Locale</td>
+<td>locale</td>
+<td>VARCHAR</td>
+</tr>
+<tr>
+<td>java.util.TimeZone</td>
+<td>timezone</td>
+<td>VARCHAR</td>
+</tr>
+<tr>
+<td>java.util.Currency</td>
+<td>currency</td>
+<td>VARCHAR</td>
+</tr>
+</tbody></table>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

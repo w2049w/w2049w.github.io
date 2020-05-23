@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        mysql/dml - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DML数据处理之增删改"><span class="toc-text">DML数据处理之增删改</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#INSERT"><span class="toc-text">INSERT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方式一"><span class="toc-text">方式一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方式二"><span class="toc-text">方式二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#向表中插入数据"><span class="toc-text">向表中插入数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UPDATE"><span class="toc-text">UPDATE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改单表的记录"><span class="toc-text">修改单表的记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法-1"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改多表的记录"><span class="toc-text">修改多表的记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法-2"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DELETE"><span class="toc-text">DELETE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#删除单表的记录"><span class="toc-text">删除单表的记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法-3"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#级联删除"><span class="toc-text">级联删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法-4"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TRUNCATE"><span class="toc-text">TRUNCATE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#语法-5"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DELETE和TRUNCATE的区别"><span class="toc-text">DELETE和TRUNCATE的区别</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        mysql/dml
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 00:28:43</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="DML数据处理之增删改"><a href="#DML数据处理之增删改" class="headerlink" title="DML数据处理之增删改"></a>DML数据处理之增删改</h1><p>DML(Data Manipulation Language –数据操纵语言) 可以在下列条件下执行:</p>
+<ul>
+<li>向表中插入数据</li>
+<li>修改现存数据</li>
+<li>删除现存数据</li>
+</ul>
+<p><strong>事务是由完成若干项工作的DML语句组成的</strong></p>
+<p>运行以下脚本创建表my_employees</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">USE myemployees;</span><br><span class="line">CREATE TABLE my_employees(</span><br><span class="line">	Id INT(10),</span><br><span class="line">	First_name VARCHAR(10),</span><br><span class="line">	Last_name VARCHAR(10),</span><br><span class="line">	Userid VARCHAR(10),</span><br><span class="line">	Salary DOUBLE(10,2)</span><br><span class="line">);</span><br><span class="line">CREATE TABLE users(</span><br><span class="line">	id INT,</span><br><span class="line">	userid VARCHAR(10),</span><br><span class="line">	department_id INT</span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>显示表my_employees的结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DESC my_employees;</span><br></pre></td></tr></table></figure>
+
+<h2 id="INSERT"><a href="#INSERT" class="headerlink" title="INSERT"></a>INSERT</h2><h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名(字段名,...) values(值,...);</span><br></pre></td></tr></table></figure>
+
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li><p>要求值的类型和字段的类型要一致或兼容</p>
+</li>
+<li><p>字段的个数和顺序不一定与原始表中的字段个数和顺序一致</p>
+<p><code>但必须保证值和字段一一对应</code></p>
+</li>
+<li><p>假如表中有可以为null的字段，注意可以通过以下两种方式插入null值</p>
+<p>① 字段和值都省略<br>② 字段写上，值使用null</p>
+</li>
+<li><p>字段和值的个数必须一致</p>
+</li>
+<li><p>字段名可以省略，默认所有列</p>
+</li>
+</ol>
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><p>语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名 set 字段&#x3D;值,字段&#x3D;值,...;</span><br></pre></td></tr></table></figure>
+
+<p><strong>两种方式的区别：</strong></p>
+<ol>
+<li><p>方式一支持一次插入多行，语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名【(字段名,..)】 values(值，..),(值，...),...;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>方式一支持子查询，语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名</span><br><span class="line">查询语句;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="向表中插入数据"><a href="#向表中插入数据" class="headerlink" title="向表中插入数据"></a>向表中插入数据</h3><p>向my_employees表中插入下列数据</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>FIRST_NAME</th>
+<th>LAST_NAME</th>
+<th>USERID</th>
+<th>SALARY</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>patel</td>
+<td>Ralph</td>
+<td>Rpatel</td>
+<td>895</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Dancs</td>
+<td>Betty</td>
+<td>Bdancs</td>
+<td>860</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Biri</td>
+<td>Ben</td>
+<td>Bbiri</td>
+<td>1100</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Newman</td>
+<td>Chad</td>
+<td>Cnewman</td>
+<td>750</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Ropeburn</td>
+<td>Audrey</td>
+<td>Aropebur</td>
+<td>155</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO my_employees</span><br><span class="line">VALUES</span><br><span class="line">	( 1, &#39;patel&#39;, &#39;Ralph&#39;, &#39;Rpatel&#39;, 895 ),</span><br><span class="line">	( 2, &#39;Dancs&#39;, &#39;Betty&#39;, &#39;Bdancs&#39;, 860 ),</span><br><span class="line">	( 3, &#39;Biri&#39;, &#39;Ben&#39;, &#39;Bbiri&#39;, 1100 ),</span><br><span class="line">	( 4, &#39;Newman&#39;, &#39;Chad&#39;, &#39;Cnewman&#39;, 750 ),</span><br><span class="line">	( 5, &#39;Ropeburn&#39;, &#39;Audrey&#39;, &#39;Aropebur&#39;, 1550 );</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 先删除表数据</span><br><span class="line">DELETE FROM my_employees;</span><br><span class="line"># 再插入</span><br><span class="line">INSERT INTO my_employees</span><br><span class="line">SELECT 1,&#39;patel&#39;,&#39;Ralph&#39;,&#39;Rpatel&#39;,895 UNION</span><br><span class="line">SELECT 2,&#39;Dancs&#39;,&#39;Betty&#39;,&#39;Bdancs&#39;,860 UNION</span><br><span class="line">SELECT 3,&#39;Biri&#39;,&#39;Ben&#39;,&#39;Bbiri&#39;,1100 UNION</span><br><span class="line">SELECT 4,&#39;Newman&#39;,&#39;Chad&#39;,&#39;Cnewman&#39;,750 UNION</span><br><span class="line">SELECT 5,&#39;Ropeburn&#39;,&#39;Audrey&#39;,&#39;Aropebur&#39;,1550;</span><br></pre></td></tr></table></figure>
+
+<p>向users表中插入数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO users</span><br><span class="line">VALUES</span><br><span class="line">	( 1, &#39;Rpatel&#39;, 10 ),</span><br><span class="line">	( 2, &#39;Bdancs&#39;, 10 ),</span><br><span class="line">	( 3, &#39;Bbiri&#39;, 20 );</span><br></pre></td></tr></table></figure>
+
+<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><h3 id="修改单表的记录"><a href="#修改单表的记录" class="headerlink" title="修改单表的记录"></a>修改单表的记录</h3><h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update 表名 set 字段&#x3D;值,字段&#x3D;值 【where 筛选条件】;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>将3号员工的last_name修改为“drelxer”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE my_employees SET last_name&#x3D;&#39;drelxer&#39; WHERE id &#x3D; 3;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将所有工资少于900的员工的工资修改为1000</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE my_employees SET salary&#x3D;1000 WHERE salary&lt;900;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="修改多表的记录"><a href="#修改多表的记录" class="headerlink" title="修改多表的记录"></a>修改多表的记录</h3><h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">update 表1 别名 </span><br><span class="line">left|right|inner join 表2 别名 </span><br><span class="line">on 连接条件  </span><br><span class="line">set 字段&#x3D;值,字段&#x3D;值 </span><br><span class="line">【where 筛选条件】;</span><br></pre></td></tr></table></figure>
+
+<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><h3 id="删除单表的记录"><a href="#删除单表的记录" class="headerlink" title="删除单表的记录"></a>删除单表的记录</h3><h3 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from 表名 【where 筛选条件】【limit 条目数】</span><br></pre></td></tr></table></figure>
+
+<h3 id="级联删除"><a href="#级联删除" class="headerlink" title="级联删除"></a>级联删除</h3><h3 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">delete 别名1,别名2 from 表1 别名 </span><br><span class="line">inner|left|right join 表2 别名 </span><br><span class="line">on 连接条件</span><br><span class="line"> 【where 筛选条件】</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>将userid 为Bbiri的user表和my_employees表的记录全部删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">DELETE u,e </span><br><span class="line">FROM</span><br><span class="line">	users u</span><br><span class="line">	JOIN my_employees e </span><br><span class="line">ON u.&#96;userid&#96; &#x3D; e.&#96;Userid&#96; </span><br><span class="line">WHERE</span><br><span class="line">	u.&#96;userid&#96; &#x3D; &#39;Bbiri&#39;;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>删除所有数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM my_employees;</span><br><span class="line">DELETE FROM users;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="TRUNCATE"><a href="#TRUNCATE" class="headerlink" title="TRUNCATE"></a>TRUNCATE</h2><p>清空表</p>
+<h3 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truncate table 表名</span><br></pre></td></tr></table></figure>
+
+<h2 id="DELETE和TRUNCATE的区别"><a href="#DELETE和TRUNCATE的区别" class="headerlink" title="DELETE和TRUNCATE的区别"></a>DELETE和TRUNCATE的区别</h2><ol>
+<li>truncate删除后，如果再插入，标识列从1开始。delete删除后，如果再插入，标识列从断点开始</li>
+<li>delete可以添加筛选条件，truncate不可以添加筛选条件</li>
+<li>truncate效率较高</li>
+<li>truncate没有返回值，delete可以返回受影响的行数</li>
+<li>truncate不可以回滚，delete可以回滚</li>
+</ol>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

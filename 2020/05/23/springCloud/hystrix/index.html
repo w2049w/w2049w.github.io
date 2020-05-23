@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        springCloud/hystrix - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hystrix"><span class="toc-text">Hystrix</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#雪崩问题"><span class="toc-text">雪崩问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程隔离，服务降级"><span class="toc-text">线程隔离，服务降级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-text">原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动手实践"><span class="toc-text">动手实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引入依赖"><span class="toc-text">引入依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启熔断"><span class="toc-text">开启熔断</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SpringCloudApplication"><span class="toc-text">@SpringCloudApplication</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编写降级逻辑"><span class="toc-text">编写降级逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#默认FallBack"><span class="toc-text">默认FallBack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置超时"><span class="toc-text">设置超时</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务熔断"><span class="toc-text">服务熔断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#熔断原理"><span class="toc-text">熔断原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动手实践-1"><span class="toc-text">动手实践</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改熔断策略"><span class="toc-text">修改熔断策略</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        springCloud/hystrix
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 00:28:43</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Hystrix"><a href="#Hystrix" class="headerlink" title="Hystrix"></a>Hystrix</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Hystrix,英文意思是豪猪，全身是刺，看起来就不好惹，是一种保护机制。</p>
+<p>Hystrix也是Netflix公司的一款组件。</p>
+<p><img src="https://cdn.static.note.zzrfdsn.cn/images/springcloud/assets/1525658740266.png" alt="1525658740266"></p>
+<p>那么Hystix的作用是什么呢？具体要保护什么呢？</p>
+<p>Hystix是Netflix开源的一个延迟和容错库，用于隔离访问远程服务、第三方库，防止出现级联失败。</p>
+<h2 id="雪崩问题"><a href="#雪崩问题" class="headerlink" title="雪崩问题"></a>雪崩问题</h2><p>微服务中，服务间调用关系错综复杂，一个请求，可能需要调用多个微服务接口才能实现，会形成非常复杂的调用链路：</p>
+<p> <img src="https://cdn.static.note.zzrfdsn.cn/images/springcloud/assets/1533829099748.png" alt="1533829099748"></p>
+<p>如图，一次业务请求，需要调用A、P、H、I四个服务，这四个服务又可能调用其它服务。</p>
+<p>如果此时，某个服务出现异常：</p>
+<p><img src="https://cdn.static.note.zzrfdsn.cn/images/springcloud/assets/1533829198240.png" alt="1533829198240"></p>
+<p>例如微服务I发生异常，请求阻塞，用户不会得到响应，则tomcat的这个线程不会释放，于是越来越多的用户请求到来，越来越多的线程会阻塞：</p>
+<p> <img src="https://cdn.static.note.zzrfdsn.cn/images/springcloud/assets/1533829307389.png" alt="1533829307389"></p>
+<p>服务器支持的线程和并发数有限，请求一直阻塞，会导致服务器资源耗尽，从而导致所有其它服务都不可用，形成雪崩效应。</p>
+<p>这就好比，一个汽车生产线，生产不同的汽车，需要使用不同的零件，如果某个零件因为种种原因无法使用，那么就会造成整台车无法装配，陷入等待零件的状态，直到零件到位，才能继续组装。  此时如果有很多个车型都需要这个零件，那么整个工厂都将陷入等待的状态，导致所有生产都陷入瘫痪。一个零件的波及范围不断扩大。 </p>
+<p>Hystix解决雪崩问题的手段有两个：</p>
+<ul>
+<li>线程隔离</li>
+<li>服务熔断</li>
+</ul>
+<h2 id="线程隔离，服务降级"><a href="#线程隔离，服务降级" class="headerlink" title="线程隔离，服务降级"></a>线程隔离，服务降级</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>线程隔离示意图：</p>
+<p> <img src="https://cdn.static.note.zzrfdsn.cn/images/springcloud/assets/1533829598310.png" alt="1533829598310"></p>
+<p>解读：</p>
+<p>Hystrix为每个依赖服务调用分配一个小的线程池，如果线程池已满调用将被立即拒绝，默认不采用排队.加速失败判定时间。</p>
+<p>用户的请求将不再直接访问服务，而是通过线程池中的空闲线程来访问服务，如果<strong>线程池已满</strong>，或者<strong>请求超时</strong>，则会进行降级处理，什么是服务降级？</p>
+<blockquote>
+<p>服务降级：优先保证核心服务，而非核心服务不可用或弱可用。</p>
+</blockquote>
+<p>用户的请求故障时，不会被阻塞，更不会无休止的等待或者看到系统崩溃，至少可以看到一个执行结果（例如返回友好的提示信息） 。</p>
+<p>服务降级虽然会导致请求失败，但是不会导致阻塞，而且最多会影响这个依赖服务对应的线程池中的资源，对其它服务没有响应。</p>
+<p>触发Hystix服务降级的情况：</p>
+<ul>
+<li>线程池已满</li>
+<li>请求超时</li>
+</ul>
+<h2 id="动手实践"><a href="#动手实践" class="headerlink" title="动手实践"></a>动手实践</h2><h3 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h3><p>!&gt; 虽然Eureka已经集成了<code>Hystrix</code>，但是还缺少一些依赖，还是要手动添加hystrix的场景依赖</p>
+<p>首先在<code>springcloud-eureka-service-consumer</code>的pom.xml中引入<code>Hystrix</code>依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-hystrix<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="开启熔断"><a href="#开启熔断" class="headerlink" title="开启熔断"></a>开启熔断</h3><p>在启动类上添加<code>@EnableCircuitBreaker</code>注解，表示开启熔断</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="meta">@EnableCircuitBreaker</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringcloudEurekaServiceConsumerApplication</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="SpringCloudApplication"><a href="#SpringCloudApplication" class="headerlink" title="@SpringCloudApplication"></a>@SpringCloudApplication</h4><p>可以看到，我们类上的注解越来越多，在微服务中，经常会引入上面的三个注解，于是Spring就提供了一个组合注解：<code>@SpringCloudApplication</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringCloudApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringcloudEurekaServiceConsumerApplication</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="编写降级逻辑"><a href="#编写降级逻辑" class="headerlink" title="编写降级逻辑"></a>编写降级逻辑</h3><p>我们改造<code>springcloud-eureka-service-consumer</code>，当目标服务的调用出现故障，我们希望快速失败，给用户一个友好提示。因此需要提前编写好失败时的降级处理逻辑，要使用HystixCommond来完成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RestTemplate restTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/&#123;id&#125;"</span>)</span><br><span class="line">    <span class="meta">@HystrixCommand</span>(fallbackMethod = <span class="string">"getUserByIDFallback"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUserById</span><span class="params">(@PathVariable Long id)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//直接通过服务名称调用</span></span><br><span class="line">        String baseUrl = <span class="string">"http://service-provider/user/"</span>;</span><br><span class="line">        <span class="keyword">return</span> restTemplate.getForObject(baseUrl+id, String<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUserByIDFallback</span><span class="params">(Long id)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id+<span class="string">"查询失败，原因：请求繁忙！"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>@HystrixCommand(fallbackMethod = &quot;getUserByIDFallback&quot;)</code>：用来声明一个降级逻辑的方法</p>
+<p>!&gt; 要注意，因为熔断的降级逻辑方法必须跟正常逻辑方法保证：<strong>相同的参数列表和返回值声明</strong>。失败逻辑中返回实体类对象没有太大意义，一般会返回友好提示。所以我们把getUserById的方法改造为返回String，反正也是Json数据。这样失败逻辑中返回一个错误说明，会比较方便。</p>
+<p>然后重启<code>springcloud-eureka-service-consumer</code>，访问<a href="http://localhost:8083/user/1" target="_blank" rel="noopener">http://localhost:8083/user/1</a></p>
+<p>这是正常情况所以和以前一样返回请求的数据</p>
+<p>接下来把两个服务提供应用都关闭，再重新访问</p>
+<p>会发现页面返回了降级处理信息：</p>
+<h3 id="默认FallBack"><a href="#默认FallBack" class="headerlink" title="默认FallBack"></a>默认FallBack</h3><p>我们刚才把fallback写在了某个业务方法上，如果这样的方法很多，那岂不是要写很多。所以我们可以把Fallback配置加在类上，实现默认fallback</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"user"</span>)</span><br><span class="line"><span class="meta">@DefaultProperties</span>(defaultFallback = <span class="string">"defaultFallback"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RestTemplate restTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/&#123;id&#125;"</span>)</span><br><span class="line">    <span class="meta">@HystrixCommand</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUserById</span><span class="params">(@PathVariable Long id)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//直接通过服务名称调用</span></span><br><span class="line">        String baseUrl = <span class="string">"http://service-provider/user/"</span>;</span><br><span class="line">        <span class="keyword">return</span> restTemplate.getForObject(baseUrl+id, String<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">defaultFallback</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"请求繁忙，请稍后再试！"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>@DefaultProperties(defaultFallback = &quot;defaultFallBack&quot;)</code>：在类上指明统一的失败降级方法</li>
+<li><code>@HystrixCommand</code>：在方法上直接使用该注解，使用默认的降级方法。</li>
+<li><code>defaultFallback()</code>：默认降级方法，<span style="color:red">不能有任何参数，且返回值一定要一致</span>，以匹配更多方法</li>
+</ul>
+<h3 id="设置超时"><a href="#设置超时" class="headerlink" title="设置超时"></a>设置超时</h3><p>在之前的案例中，请求在超过1秒后都会返回错误信息，这是因为Hystix的默认超时时长为1，我们可以通过配置修改这个值：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">hystrix:</span></span><br><span class="line">  <span class="attr">command:</span></span><br><span class="line">    <span class="attr">default:</span></span><br><span class="line">      <span class="attr">execution:</span></span><br><span class="line">        <span class="attr">isolation:</span></span><br><span class="line">          <span class="attr">thread:</span></span><br><span class="line">            <span class="attr">timeoutInMilliseconds:</span> <span class="number">6000</span> <span class="comment"># 设置hystrix的超时时间为6000ms(6秒)</span></span><br></pre></td></tr></table></figure>
+
+<p>这里我们修改服务提供方，模拟网络延迟，在服务提供方睡眠8秒，启动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> IUserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TbUser <span class="title">queryUserById</span><span class="params">(@PathVariable Long id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">8000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> userService.queryById(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重启<code>springcloud-eureka-service-consumer</code></p>
+<p>再访问：</p>
+<p>这次就不是立马返回结果了，而是6秒之后</p>
+<p><img src="https://cdn.static.note.zzrfdsn.cn/images/springcloud/assets/1574764520930.png" alt="1574764520930"></p>
+<h2 id="服务熔断"><a href="#服务熔断" class="headerlink" title="服务熔断"></a>服务熔断</h2><h3 id="熔断原理"><a href="#熔断原理" class="headerlink" title="熔断原理"></a>熔断原理</h3><p>熔断器，也叫断路器，其英文单词为：Circuit Breaker </p>
+<p><img src="https://cdn.static.note.zzrfdsn.cn/images/springcloud/assets/1525658640314.png" alt="1525658640314"></p>
+<p>熔断状态机3个状态：</p>
+<ul>
+<li><code>Closed</code>：关闭状态，所有请求都正常访问。</li>
+<li><code>Open</code>：打开状态，所有请求都会被降级。Hystix会对请求情况计数，当一定时间内失败请求百分比达到阈值，则触发熔断，断路器会完全打开。默认失败比例的阈值是50%，请求次数最少不低于20次。</li>
+<li><code>Half Open</code>：半开状态，open状态不是永久的，打开后会进入休眠时间（默认是5S）。随后断路器会自动进入半开状态。此时会释放部分请求通过，若这些请求都是健康的，则会完全关闭断路器，否则继续保持打开，再次进行休眠计时</li>
+</ul>
+<h3 id="动手实践-1"><a href="#动手实践-1" class="headerlink" title="动手实践"></a>动手实践</h3><p>为了能够精确控制请求的成功或失败，我们在consumer的调用业务中加入一段逻辑：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"user"</span>)</span><br><span class="line"><span class="meta">@DefaultProperties</span>(defaultFallback = <span class="string">"defaultFallback"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RestTemplate restTemplate;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/&#123;id&#125;"</span>)</span><br><span class="line">    <span class="meta">@HystrixCommand</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUserById</span><span class="params">(@PathVariable Long id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (id==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"忙碌中......"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//直接通过服务名称调用</span></span><br><span class="line">        String baseUrl = <span class="string">"http://service-provider/user/"</span>;</span><br><span class="line">        <span class="keyword">return</span> restTemplate.getForObject(baseUrl+id, String<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">defaultFallback</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"请求繁忙，请稍后再试！"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样如果参数是id为1，一定失败，其它情况都成功。</p>
+<p>!&gt; 不要忘了删掉service-provider中的休眠逻辑</p>
+<p>接下来</p>
+<ol>
+<li>请求<a href="http://localhost:8083/user/2" target="_blank" rel="noopener">http://localhost:8083/user/2</a>，一切正常</li>
+<li>然后慢悠悠的请求，<a href="http://localhost:8083/user/1" target="_blank" rel="noopener">http://localhost:8083/user/1</a>，20次，慢一点</li>
+<li>然后再访问2，还是正常</li>
+<li>接下来，疯狂请求<a href="http://localhost:8083/user/1" target="_blank" rel="noopener">http://localhost:8083/user/1</a>，20次，快，一定要快</li>
+<li>接着再访问2，咦！发现2也无法访问，也被降级了</li>
+<li>然后，数5秒后再访问1后再访问2，依旧无法访问</li>
+<li>最后再数5秒后访问2，就可以访问了，结合熔断状态机3个状态想想，应该知道是怎么回事了吧</li>
+</ol>
+<h3 id="修改熔断策略"><a href="#修改熔断策略" class="headerlink" title="修改熔断策略"></a>修改熔断策略</h3><p>我们可以注解修改熔断策略：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">@RestController</span></span><br><span class="line"><span class="string">@RequestMapping("user")</span></span><br><span class="line"><span class="string">@DefaultProperties(</span></span><br><span class="line">        <span class="string">defaultFallback</span> <span class="string">=</span> <span class="string">"defaultFallback"</span><span class="string">,</span></span><br><span class="line">        <span class="string">commandProperties</span> <span class="string">=</span> <span class="string">&#123;</span></span><br><span class="line">                <span class="string">@HystrixProperty(name</span> <span class="string">=</span> <span class="string">"circuitBreaker.requestVolumeThreshold"</span><span class="string">,</span> <span class="string">value</span> <span class="string">=</span> <span class="string">"5"</span><span class="string">),</span></span><br><span class="line">                <span class="string">@HystrixProperty(name</span> <span class="string">=</span> <span class="string">"circuitBreaker.sleepWindowInMilliseconds"</span><span class="string">,</span> <span class="string">value</span> <span class="string">=</span> <span class="string">"10000"</span><span class="string">),</span></span><br><span class="line">                <span class="string">@HystrixProperty(name</span> <span class="string">=</span> <span class="string">"circuitBreaker.errorThresholdPercentage"</span><span class="string">,</span> <span class="string">value</span> <span class="string">=</span> <span class="string">"50"</span><span class="string">)</span></span><br><span class="line">        <span class="string">&#125;)</span></span><br><span class="line"><span class="string">public</span> <span class="string">class</span> <span class="string">UserController</span> <span class="string">&#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">@Autowired</span></span><br><span class="line">    <span class="string">private</span> <span class="string">RestTemplate</span> <span class="string">restTemplate;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="string">@GetMapping("/&#123;id&#125;")</span></span><br><span class="line">    <span class="string">@HystrixCommand</span></span><br><span class="line">    <span class="string">public</span> <span class="string">String</span> <span class="string">getUserById(@PathVariable</span> <span class="string">Long</span> <span class="string">id)</span> <span class="string">&#123;</span></span><br><span class="line">        <span class="string">if</span> <span class="string">(id</span> <span class="string">==</span> <span class="number">1</span><span class="string">)</span> <span class="string">&#123;</span></span><br><span class="line">            <span class="string">throw</span> <span class="string">new</span> <span class="string">RuntimeException("忙碌中......");</span></span><br><span class="line">        <span class="string">&#125;</span></span><br><span class="line">        <span class="string">//直接通过服务名称调用</span></span><br><span class="line">        <span class="string">String</span> <span class="string">baseUrl</span> <span class="string">=</span> <span class="string">"http://service-provider/user/"</span><span class="string">;</span></span><br><span class="line">        <span class="string">return</span> <span class="string">restTemplate.getForObject(baseUrl</span> <span class="string">+</span> <span class="string">id,</span> <span class="string">String.class);</span></span><br><span class="line">    <span class="string">&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">public</span> <span class="string">String</span> <span class="string">defaultFallback()</span> <span class="string">&#123;</span></span><br><span class="line">        <span class="string">return</span> <span class="string">"请求繁忙，请稍后再试！"</span><span class="string">;</span></span><br><span class="line">    <span class="string">&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><code>requestVolumeThreshold</code>：触发熔断的最小请求次数，默认20</li>
+<li><code>sleepWindowInMilliseconds</code>：休眠时长，默认是5000毫秒</li>
+<li><code>errorThresholdPercentage</code>：触发熔断的失败请求最小占比，默认50%</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

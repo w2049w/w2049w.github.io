@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        hibernate/status - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hibernate-实体的状态"><span class="toc-text">Hibernate 实体的状态</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#瞬时转持久"><span class="toc-text">瞬时转持久</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#持久转脱管"><span class="toc-text">持久转脱管</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        hibernate/status
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 00:28:43</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Hibernate-实体的状态"><a href="#Hibernate-实体的状态" class="headerlink" title="Hibernate 实体的状态"></a>Hibernate 实体的状态</h1><p>实体Entity有三种状态，<code>瞬时状态</code>、<code>持久状态</code>、<code>脱管状态</code></p>
+<p>瞬时状态：transient,  session没有缓存，数据库也没有记录，oid没有值</p>
+<p>持久状态：persistent,  session有缓存，数据库也有记录,oid有值</p>
+<p>脱管状态/游离状态：detached，session没有缓存，数据库有记录,oid有值</p>
+<h2 id="瞬时转持久"><a href="#瞬时转持久" class="headerlink" title="瞬时转持久"></a>瞬时转持久</h2><p>新创建的一个对象，经过save,或者savaOrUpdate调用后，会变成持久状态</p>
+<h2 id="持久转脱管"><a href="#持久转脱管" class="headerlink" title="持久转脱管"></a>持久转脱管</h2><p><code>load</code>，<code>get</code>返回的对象是持久状态的，当session关闭或者清除后，对象变成脱管状态</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> club.zzrfdsnsyl.demo.a_threeState;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.hibernate.Session;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.Transaction;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> club.zzrfdsnsyl.Utils.HbUtil;</span><br><span class="line"><span class="keyword">import</span> club.zzrfdsnsyl.domain.Customer;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 持久化对象的三种状态</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> SYL</span></span><br><span class="line"><span class="comment"> *	瞬时		持久		游离</span></span><br><span class="line"><span class="comment"> *	瞬时	save()/get()--&gt;持久</span></span><br><span class="line"><span class="comment"> *	游离 update()--&gt;持久</span></span><br><span class="line"><span class="comment"> *	持久 delete()--&gt;瞬时</span></span><br><span class="line"><span class="comment"> *	瞬时/游离 saveOrUpdate()--&gt;持久</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">State</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 瞬时状态 无OID 没有与session关联</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transientState</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Customer customer=<span class="keyword">new</span> Customer();</span><br><span class="line">		customer.setCust_name(<span class="string">"郑州财经学院"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 持久化状态 有OID 与session关联</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">persistent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Customer customer=<span class="keyword">new</span> Customer();</span><br><span class="line">		customer.setCust_name(<span class="string">"郑州财经学院"</span>);</span><br><span class="line">		Session session = HbUtil.openSession();</span><br><span class="line">		Serializable save = session.save(customer); </span><br><span class="line">		System.out.println(save);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 游离状态 </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">detached</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Customer customer=<span class="keyword">new</span> Customer();</span><br><span class="line">		customer.setCust_name(<span class="string">"郑州财经学院"</span>);</span><br><span class="line">		Session session = HbUtil.openSession();</span><br><span class="line">		Transaction transaction = session.beginTransaction();</span><br><span class="line">		Serializable save = session.save(customer);</span><br><span class="line">		System.out.println(save);</span><br><span class="line">		transaction.commit();</span><br><span class="line">		session.close(); <span class="comment">//session关闭 与session没联系了</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 持久化状态 有OID 与session关联</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">persistent02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Session session = HbUtil.openSession();</span><br><span class="line">		Transaction transaction = session.beginTransaction();</span><br><span class="line">		Customer customer = session.get(Customer<span class="class">.<span class="keyword">class</span>, 1<span class="title">L</span>)</span>; </span><br><span class="line">		customer.setCust_name(<span class="string">"小米科技"</span>);</span><br><span class="line">		<span class="comment">//无需.update(...);</span></span><br><span class="line">		transaction.commit();</span><br><span class="line">		session.close();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>get</code>、<code>load</code>、<code>createQuery</code>、<code>createCriteria</code> 等从数据库获得的都是持久态</p>
+<p>瞬时状态执行<code>save</code>、<code>update</code>、<code>saveOrUpdate</code>之后变成持久状态</p>
+<p>持久态转换脱管态</p>
+<ol>
+<li>session.close () 关闭</li>
+<li>session.clear() 清除所有</li>
+<li>session.evict(obj) 清除指定的PO对象</li>
+</ol>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

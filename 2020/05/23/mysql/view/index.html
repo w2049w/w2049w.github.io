@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        mysql/view - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>wwei</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL视图"><span class="toc-text">MySQL视图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#应用场景"><span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优点"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建视图"><span class="toc-text">创建视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改视图"><span class="toc-text">修改视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方式一"><span class="toc-text">方式一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方式二"><span class="toc-text">方式二</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除视图"><span class="toc-text">删除视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看视图"><span class="toc-text">查看视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#视图的更新"><span class="toc-text">视图的更新</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#案例"><span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#视图和表的对比"><span class="toc-text">视图和表的对比</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        mysql/view
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 00:28:43</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="MySQL视图"><a href="#MySQL视图" class="headerlink" title="MySQL视图"></a>MySQL视图</h1><blockquote>
+<p>MySQL从5.0.1版本开始提供视图功能。一种虚拟存在的表，行和列的数据来自定义视图的查询中 使用的表，并且是在使用视图时动态生成的，只保存了sql逻辑，不保存查询结果</p>
+</blockquote>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul>
+<li>多个地方用到同样的查询结果</li>
+<li>该查询结果使用的sql语句较复杂</li>
+</ul>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
+<li><p>简化sql语句</p>
+</li>
+<li><p>提高了sql的重用性</p>
+</li>
+<li><p>保护基表的数据，提高了安全性</p>
+</li>
+</ol>
+<h2 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create view 视图名</span><br><span class="line">as</span><br><span class="line">查询语句;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>创建视图emp_v1,要求查询电话号码以‘011’开头的员工姓名和工资、邮箱</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW emp_v1 AS SELECT</span><br><span class="line">	last_name,</span><br><span class="line">	salary,</span><br><span class="line">	email </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">WHERE</span><br><span class="line">	phone_number LIKE &#39;011%&#39;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建视图emp_v2，要求查询部门的最高工资高于12000的部门信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 创建视图，查询每个部门的最高工资,筛选出高于12000的</span><br><span class="line">DROP VIEW emp_v2;</span><br><span class="line">CREATE VIEW emp_v2 AS SELECT</span><br><span class="line">department_id,</span><br><span class="line">MAX( salary ) max_salary </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">GROUP BY</span><br><span class="line">	department_id </span><br><span class="line">HAVING</span><br><span class="line">	max_salary &gt; 12000;</span><br><span class="line">	</span><br><span class="line"># 根据创建的视图连接departments表查询部门信息</span><br><span class="line">SELECT</span><br><span class="line">	d.*,</span><br><span class="line">	ev2.max_salary </span><br><span class="line">FROM</span><br><span class="line">	departments d</span><br><span class="line">	JOIN emp_v2 ev2 </span><br><span class="line">	ON d.department_id &#x3D; ev2.department_id;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询姓名中包含a字符的员工名、部门名和工种信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 查询员工名、部门名和工种信息</span><br><span class="line">CREATE VIEW emp_v3 AS SELECT</span><br><span class="line">e.last_name,</span><br><span class="line">d.department_name,</span><br><span class="line">j.job_title </span><br><span class="line">FROM</span><br><span class="line">	employees e</span><br><span class="line">	LEFT JOIN departments d ON e.department_id &#x3D; d.department_id</span><br><span class="line">	LEFT JOIN jobs j ON e.job_id &#x3D; j.job_id;</span><br><span class="line"></span><br><span class="line"># 筛选出姓名中包含a字符的员工</span><br><span class="line">SELECT * FROM emp_v3 WHERE last_name LIKE &#39;%a%&#39;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询各部门的平均工资级别</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 查询各部门的平均工资</span><br><span class="line">CREATE VIEW emp_v4 AS SELECT</span><br><span class="line">AVG( salary ) avg_salary,</span><br><span class="line">department_id </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">GROUP BY</span><br><span class="line">	department_id;</span><br><span class="line">	</span><br><span class="line"># 查询各部门的平均工资级别</span><br><span class="line">SELECT</span><br><span class="line">	department_id,</span><br><span class="line">	j.grade_level </span><br><span class="line">FROM</span><br><span class="line">	emp_v4 ev4</span><br><span class="line">	LEFT JOIN job_grades j </span><br><span class="line">	ON ev4.avg_salary BETWEEN j.lowest_sal </span><br><span class="line">	AND j.highest_sal</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询平均工资最低的部门信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	d.*,</span><br><span class="line">	ev4.avg_salary </span><br><span class="line">FROM</span><br><span class="line">	departments d</span><br><span class="line">	JOIN ( SELECT * FROM emp_v4 ORDER BY avg_salary LIMIT 1 ) ev4 </span><br><span class="line">	ON d.department_id &#x3D; ev4.department_id</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h2 id="修改视图"><a href="#修改视图" class="headerlink" title="修改视图"></a>修改视图</h2><h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create or replace view  视图名</span><br><span class="line">as</span><br><span class="line">查询语句;</span><br></pre></td></tr></table></figure>
+
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alter view 视图名</span><br><span class="line">as </span><br><span class="line">查询语句;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop view 视图名,视图名,...</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP VIEW emp_v1,emp_v2,emp_v3,emp_v4;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="查看视图"><a href="#查看视图" class="headerlink" title="查看视图"></a>查看视图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DESC 视图名;</span><br><span class="line"></span><br><span class="line">SHOW CREATE VIEW 视图名;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW emp_v1 AS SELECT</span><br><span class="line">* </span><br><span class="line">FROM</span><br><span class="line">	employees;</span><br><span class="line"></span><br><span class="line">DESC emp_v1;</span><br><span class="line"></span><br><span class="line">SHOW CREATE VIEW emp_v1;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="视图的更新"><a href="#视图的更新" class="headerlink" title="视图的更新"></a>视图的更新</h2><p>视图的可更新性和视图中查询的定义有关系，以下类型的视图是不能更新的。</p>
+<ul>
+<li>包含以下关键字的sql语句：分组函数、distinct、group by</li>
+<li>having、union或者union all</li>
+<li>常量视图</li>
+<li>Select中包含子查询</li>
+<li>join</li>
+<li>from一个不能更新的视图</li>
+<li>where子句的子查询引用了from子句中的表</li>
+</ul>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><ol>
+<li><details> <summary>张飞能否成功插入？</summary>不能，原表中没有annual salary那一列 </details>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 创建视图，查询员工的姓名，邮箱和年薪</span><br><span class="line"></span><br><span class="line">CREATE </span><br><span class="line">	OR REPLACE VIEW myv1 AS SELECT</span><br><span class="line">	last_name,</span><br><span class="line">	email,</span><br><span class="line">	salary * 12 *(1+IFNULL ( commission_pct, 0 )) &quot;annual salary&quot; </span><br><span class="line">FROM</span><br><span class="line">	employees;</span><br><span class="line">	</span><br><span class="line"># 插入一条数据</span><br><span class="line">INSERT INTO myv1 VALUES(&#39;张飞&#39;,&#39;zf@qq.com&#39;,94862.00);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><details> <summary>张飞能否成功插入？</summary>能，并且原表中也存在 </details>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 创建视图，查询员工的姓名和邮箱</span><br><span class="line"></span><br><span class="line">CREATE </span><br><span class="line">	OR REPLACE VIEW myv1 AS SELECT</span><br><span class="line">	last_name,</span><br><span class="line">	email</span><br><span class="line">FROM</span><br><span class="line">	employees;</span><br><span class="line">	</span><br><span class="line"># 插入一条数据</span><br><span class="line">INSERT INTO myv1 VALUES(&#39;张飞&#39;,&#39;zf@qq.com&#39;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><details> <summary>能否将张飞修改为张无忌？</summary>能 </details>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE myv1 SET last_name &#x3D; &#39;张无忌&#39; WHERE last_name&#x3D;&#39;张飞&#39;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><details> <summary>能否干掉张无忌？</summary>能 </details>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM myv1 WHERE last_name &#x3D; &#39;张无忌&#39;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><details> <summary>能否将10号部门的最高薪水改为9000？</summary>不能 ，包含group by和分组函数</details>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#　创建视图，查询每个部门的最高工资</span><br><span class="line">CREATE </span><br><span class="line">	OR REPLACE VIEW myv1 AS SELECT</span><br><span class="line">	MAX( salary ) m,</span><br><span class="line">	department_id </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">GROUP BY</span><br><span class="line">	department_id;</span><br><span class="line"></span><br><span class="line">＃ 将10号部门的最高薪水改为9000</span><br><span class="line">UPDATE myv1 SET m&#x3D;9000 WHERE department_id&#x3D;10;</span><br></pre></td></tr></table></figure>
+</li>
+<li><details> <summary>能否更改？</summary>不能，常量视图 </details>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE OR REPLACE VIEW myv2</span><br><span class="line">AS</span><br><span class="line">SELECT &#39;john&#39; NAME;</span><br><span class="line"></span><br><span class="line">#更新</span><br><span class="line">UPDATE myv2 SET NAME&#x3D;&#39;lucy&#39;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><details> <summary>能够将最高工资列修改为100000？</summary>不能，select中包含子查询 </details>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE OR REPLACE VIEW myv3 AS </span><br><span class="line">SELECT department_id,( SELECT MAX( salary ) FROM employees ) 最高工资 </span><br><span class="line">FROM</span><br><span class="line">	departments;</span><br><span class="line"></span><br><span class="line"># 修改</span><br><span class="line"></span><br><span class="line">UPDATE myv3 SET 最高工资&#x3D;100000;</span><br></pre></td></tr></table></figure>
+</li>
+<li><details> <summary>修改和插入能成功吗？</summary>可以更新，但是不能插入 </details>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 创建视图，查询员工名与部门名</span><br><span class="line">CREATE </span><br><span class="line">	OR REPLACE VIEW myv4 AS SELECT</span><br><span class="line">	last_name,</span><br><span class="line">	department_name </span><br><span class="line">FROM</span><br><span class="line">	employees e</span><br><span class="line">	JOIN departments d ON e.department_id &#x3D; d.department_id;</span><br><span class="line"></span><br><span class="line"># 修改</span><br><span class="line">UPDATE myv4 SET last_name  &#x3D; &#39;张飞&#39; WHERE last_name&#x3D;&#39;Whalen&#39;;</span><br><span class="line"># 插入</span><br><span class="line">INSERT INTO myv4 VALUES(&#39;陈真&#39;,&#39;Acc&#39;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><details> <summary>能修改吗？</summary>不能，from一个不能更新的视图，myv3中select使用了子查询 </details>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE </span><br><span class="line">	OR REPLACE VIEW myv5 AS SELECT</span><br><span class="line">	* </span><br><span class="line">FROM</span><br><span class="line">	myv3;</span><br><span class="line">	</span><br><span class="line"># 修改</span><br><span class="line">UPDATE myv5 SET 最高工资&#x3D;10000 WHERE department_id&#x3D;60;</span><br></pre></td></tr></table></figure>
+</li>
+<li><details> <summary>能修改吗？</summary>不能，where子句的子查询引用了from子句中的表</details>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 查询所有的领导信息</span><br><span class="line">CREATE OR REPLACE VIEW myv6</span><br><span class="line">AS</span><br><span class="line"></span><br><span class="line">SELECT last_name,email,salary</span><br><span class="line">FROM employees</span><br><span class="line">WHERE employee_id IN(</span><br><span class="line">	SELECT  manager_id</span><br><span class="line">	FROM employees</span><br><span class="line">	WHERE manager_id IS NOT NULL</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"># 修改</span><br><span class="line">UPDATE myv6 SET salary&#x3D;10000 WHERE last_name &#x3D; &#39;k_ing&#39;;</span><br></pre></td></tr></table></figure>
+
+<p>查询领导Id（将所有员工的上级Id查出来，这些Id就是领导Id）：</p>
+<p><code>SELECT DISTINCT manager_id FROM employees WHERE manager_id IS NOT NULL</code></p>
+</li>
+</ol>
+<h2 id="视图和表的对比"><a href="#视图和表的对比" class="headerlink" title="视图和表的对比"></a>视图和表的对比</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>关键字</th>
+<th>是否占用物理空间</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>视图</td>
+<td>view</td>
+<td>占用较小，只保存sql逻辑</td>
+<td>一般用于查询</td>
+</tr>
+<tr>
+<td>表</td>
+<td>table</td>
+<td>保存实际的数据</td>
+<td>增删改查</td>
+</tr>
+</tbody></table>
+<p>​<br>​                            </p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
